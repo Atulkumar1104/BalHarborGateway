@@ -15,94 +15,94 @@ const ApartmentListings = () => {
   const apartments = [
     {
       id: 0,
-      title: "Luxury Lake View Apartment",
+      title: "Unit 18",
       description:
         "Modern 2-bedroom apartment with stunning lake views, fully furnished kitchen, and private balcony.",
-      img: "https://i.pinimg.com/736x/3a/e7/59/3ae759999fb45a328028241181dec73a.jpg",
+      img: "https://uc144a68c58295829b5e35d00619.previews.dropboxusercontent.com/p/thumb/ACh-AjTw9apLgYENh6iQMLbpEsq9TXNEYJiFz-BPdjd1Vgck6HWe_KqQn7jlQbO0uwOdMZNKnaLhmF5L-j22_YoNqGiaBC8QR4yjZXPqm9gAzcBUuoyQTI9s5l2ZnX8kcfxyS9FDiaoUS-RFsAqrh29Sp_WlqoEg6W61BEFtAVQg1YF9XJYYfKx9ZKGnWzpQREaJfZ9DVEzcTqQJIsbd8kUDjIeuiHSkT2GPYqPNo6KosZEYnenlYWhbPWQJc9DesIpvL93ky5mFELEtElXd91Vz2ngSPztu0OAeFlnbDywUTBWa2frOCffwIjO1UZP1Qq_CE3tUehfrvquKs5SCptNxXISAK8Ydd3yfRFdWH8fF8g/p.jpeg",
     },
     {
       id: 1,
-      title: "Cozy Studio Downtown",
+      title: "Unit 18",
       description:
         "Efficient studio apartment in the heart of downtown. Perfect for young professionals.",
-      img: "https://i.pinimg.com/736x/21/47/f4/2147f49b409ab77b1976567b2c7d72b9.jpg",
+      img: "https://ucfec0834f97ed010fa2fbfa0b13.previews.dropboxusercontent.com/p/thumb/ACifH9Kk_IBPSkReD0AD8gVA6gdgPJAPqt_KaQ0NSk6dqDYGUut3FEnfC-8MQvi4e3qnUcHAbL7WqGPvALsQNfqqKSEK22CXtqT12Typ95Q5ooqcG-B8c3l9b3Hs6pWiQg9-iz9iOf_FFTxpl14vPf6VWpN6fQajZpgo5HEld31SMz-952CN-1HZene_gSkVF0isqvR2br7T5XdsQ4HYTfKfrQ6Z048kO3UjumXT1jbqOGmLkCaXkj7JiCM-YSV66Die_pVCAj4dZgRlHFgHebN828Ij5b1MgUbo4yUxPm0D3dTIZ2Pv1XofxH92haxbv-eci_yvT1499VJVzDri88IfjeRI-84KIPR9usx4EFfmvg/p.jpeg",
     },
     {
       id: 2,
-      title: "Family Garden Apartment",
+      title: "Unit 18",
       description:
         "Spacious 3-bedroom apartment with private garden and modern amenities.",
-      img: "https://i.pinimg.com/736x/48/76/80/487680af596db0d5dd1f3acff679e6ab.jpg",
+      img: "https://uca82608d65465054b3c33057e88.previews.dropboxusercontent.com/p/thumb/ACg9js7_HMosHbkyyniBjxdyWYp4JYZmv0rT3MjoJeKxQiL_avVl7FnjUui2utLgZJgj_MYfdCvbzgxJ3aaeLADEOiD1aAvSkEyhw53bVl78ib295KV9oQvAqPVmOldaRQN3yrPauVc0j5Srhni2Un4-8g_hUuaAt4pX2lTPbqgQ-FRsUFCJEpccR649f56nU2MZJWC9kOeqzJCoh2zSCkK1lGD_oSXM-eymbBVW8VIiE7E8uvIoGz-fx3MjNxKuqCNau0J2TLKGdpBtcXMmU3cRu3U8ekqLbYCKa4jSBl_07bRDzRmcaT7Z8h1KGbgQ8W9mDOSes_NyrWb52Ki2C6FXuQBJ05tX50B68jeVnh1pYQ/p.jpeg",
     },
     {
       id: 3,
-      title: "Urban Loft Apartment",
+      title: "Unit 18",
       description:
         "Contemporary 1-bedroom loft with high ceilings and industrial design elements.",
-      img: "https://i.pinimg.com/736x/a2/5f/14/a25f14e748d8bd58210ef74bca4d8ad2.jpg",
+      img: "https://ucc4c0c7e1359f546970d05d41b1.previews.dropboxusercontent.com/p/thumb/ACgrxslapAPQnnXFhIXlclHrlnUfz7Ym-ZM2NhXSgh0a8p6wyClZjJygBicn43r_cpxhSLeKxD9IFmsloXhLNeKYY3sFD5565VqsdMRfn00qeyRoCIid9-kAP1Yo33TkNBZfxRJjn9MTgoYd-EXH3UAkCgEY1cXpkSW3P0z7gdeqI22ImUGOhuAOzhl2fOUm7IQ0sUpqsXcUDV6N5FSqn4IPFtf76pkajNdPKt7WwAW-5obHjJekyswJacndE1c7g9toMu78cipHaC3pMZ0dX1YSI5cJx0kXrcJCbcHIFpqbAcEsG-ss9pj8IZcN1ierJ628-Xiq89c9jI3chOKEhbtF2R-6FXDpbndiUQnbSYJC9g/p.jpeg",
     },
     {
       id: 4,
-      title: "Penthouse Suite",
+      title: "Unit 18",
       description:
         "Luxurious 3-bedroom penthouse with panoramic city views and private terrace.",
-      img: "https://i.pinimg.com/736x/14/83/2e/14832edcea75d64a51176d0ebbba2328.jpg",
+      img: "https://uc454486c87fc77d0db39c547057.previews.dropboxusercontent.com/p/thumb/ACi7VcJid5SFHiGO3wFN_G0QPfu2OcCwV2XkwMcSmOxUXp68orDTAkaJ4NtJeaqSrKtAR1etQ4KIa0EY4gTLGG7dZnOh2H1zxsDXrdaqrZRUtBSbs-hkEK0cksvDxOb53O7HVv6Gl5yC2026O7kv0uDJ9Up5-2b17uznW3IpT_zQ6ZbbUSavejS9iyxvU-Zii9ls9mtT4TnL-dXIZ85MRxbuAqaED2C7vaTSmSDri1AJGV_cNW6K0OFt74sz3vfrG-1zML1s4wJgAcExjVU6OJlTIUaNz9xTpk1215xWtw5xZd6W30L1kRb7HLzkR1BgBuLEQ-_0uJu1HZWVpqY5AX16QxJcWgzV-LC4DxHwGjaywQ/p.jpeg",
     },
     {
       id: 5,
-      title: "Garden View Studio",
+      title: "Unit 18",
       description:
         "Charming studio apartment overlooking community gardens with updated appliances.",
-      img: "https://i.pinimg.com/736x/a5/42/71/a54271f6c829190c4fef81a9346e1a19.jpg",
+      img: "https://uc5b82e5a1b49c12abbe356ffdc1.previews.dropboxusercontent.com/p/thumb/ACiZoFFUXRUvQ0cM5Ri_YcbGhLidryS0Mn9c7oLV3KUYOZuYwSb9XGVG7ZYv2dZv4I2qKEwmsSRLVVwKHN7w_xGJLHQqPXt9fbplj0JQIs8F8-mm4nJjgf8SD0ilIV-3w8rQcpmmewFQcSG9YrgUA_hNMN07FPwlDr1UZ3KVEDBcEfQrqIBY9jeiD7MHCH-HdTF9HmxXwVNkxaWcfN1m8-nskPKYtWBBg9b-PXosvbaCGsQZvabG1Yo6cAL2GVNMMW8bwXmMq29i99sCnrdBcqzD-0yY6DuCluXf__NKo1npjII2ZA7kOuuQSM8llEbp4YBO6o306VadGkbe9eBn9ds3pd82DaHrFYk9_F8J4CGkEw/p.jpeg",
     },
     {
       id: 6,
-      title: "Modern Two-Bedroom",
+      title: "Unit 18",
       description:
         "Contemporary 2-bedroom apartment with open floor plan and smart home features.",
-      img: "https://i.pinimg.com/736x/db/5f/63/db5f63f65ed24c3444764b59486bbe33.jpg",
+      img: "https://ucc08743157b86c01d7b4221d578.previews.dropboxusercontent.com/p/thumb/ACg6BQcx8vKs7G77Y5pSxNwn4lFpoaaDTmXvsDu0PL5FzlyLseu1ujkZuiqoMFznqKFjMErPh-SyNW4xqRRxDvuykv-Z3xoUlI6s4dGo1szSm2XRBS8MK6M6LE3h3VVsFC6qcZYEGUFZsHyr5ZctnKwHC-lXKVaFG-KY2Zxkmg7hMmnFFeT1FTDmNUYb2i2LiWX1eW6hKpXIoeBdirZU3ceDdmrRFS1hF1neTh2KQ87YNPOFs6SMmZdNeCbeBFBvd0IVaP0sPU5ZaNzTB7cY3pgIzEtKY-18frlWTRCuXh98dagriTdW_TO7aoYzQ3BH0CbMdDLllkdLnCPcNdDJh5eAR-PNNU1Dq2nltJZWoa5_Ng/p.jpeg",
     },
     {
       id: 7,
-      title: "Riverside Apartment",
+      title: "Unit 18",
       description:
         "Elegant 2-bedroom apartment with river views and access to community amenities.",
-      img: "https://i.pinimg.com/736x/52/92/98/529298611bb7d1df076b4b869d00e03c.jpg",
+      img: "https://uc39219ba63ad22363b31e1d15ed.previews.dropboxusercontent.com/p/thumb/ACiP-bZfBiMxo9kEnC4VWoHDMxACaGpLgtgipxg47mYwcDdk8vkK7LK31QPNkeVjqDAlCZK0L6ZtYnZL8dEybkdf8wt7Gsm4naJoiVJP3IrGNKlW-NeX3R5LK_i-jgihs14vVQt6xKqLtoFChSOVH9xU6Ki0Nr6sWs8owqd1U3z8zj12aKZUJmGeYv-NK5vDt_HS7_QhUnvFE4VuaBjNKyB-xN0QaJihkulQ0QQVKC7QT73pYxl0vZ29YaABdV1sEJo3mt3xA-prBIBYl6g5gk1K4eg__Vh5KgZUVyefxh65MjJZDXWdCgJ544mp06NY3v5sV19YNLaTFS0EblDRCnuXDdm7Pp3cYCfX5bqq6zlUSA/p.jpeg",
     },
     {
       id: 8,
-      title: "Heritage Loft",
+      title: "Unit 18",
       description:
         "Historic building converted into modern loft spaces with original architectural details.",
-      img: "https://i.pinimg.com/736x/3a/e7/59/3ae759999fb45a328028241181dec73a.jpg",
+      img: "https://uc42abed1bffc61daad344b6f84e.previews.dropboxusercontent.com/p/thumb/ACjRNtg_Bk8a-j7lcYFnlrn3F1ZJIRSLubxQev4knk1YznNXANKhpBOhSIglqDQ6-vnM_e5X1plRzF2jxlUQ6QLHz2rYz14EsvifQwyC4kj7MgiOOnOIN6Y8sqPDKBwuCFuWgS4CXcaVMV5k6Zm95AhH9vf_aR4kQph9Ce-L_UE9nAWGeE2d077BeOiRp0mkKePC58BUTsfWxt37J9enZ4Qnn70-ug7Fj_632ySh7G1D9dxYfO9jHc2gMgUFlTaYJMIDclu9t5GCzJucRXSryOUrJVrnTsLyyEDcvweuBY8GU41sXHmBOEkGAuIXvidbQywVQxAW-r82JI9aOuCE_NaBKeLjkcqAL9JP9in1d0a5ow/p.jpeg",
     },
     {
       id: 9,
-      title: "Sky View Apartment",
+      title: "Unit 18",
       description:
         "High-rise apartment with floor-to-ceiling windows and stunning city skyline views.",
-      img: "https://i.pinimg.com/736x/21/47/f4/2147f49b409ab77b1976567b2c7d72b9.jpg",
+      img: "https://uc454486c87fc77d0db39c547057.previews.dropboxusercontent.com/p/thumb/ACi7VcJid5SFHiGO3wFN_G0QPfu2OcCwV2XkwMcSmOxUXp68orDTAkaJ4NtJeaqSrKtAR1etQ4KIa0EY4gTLGG7dZnOh2H1zxsDXrdaqrZRUtBSbs-hkEK0cksvDxOb53O7HVv6Gl5yC2026O7kv0uDJ9Up5-2b17uznW3IpT_zQ6ZbbUSavejS9iyxvU-Zii9ls9mtT4TnL-dXIZ85MRxbuAqaED2C7vaTSmSDri1AJGV_cNW6K0OFt74sz3vfrG-1zML1s4wJgAcExjVU6OJlTIUaNz9xTpk1215xWtw5xZd6W30L1kRb7HLzkR1BgBuLEQ-_0uJu1HZWVpqY5AX16QxJcWgzV-LC4DxHwGjaywQ/p.jpeg",
     },
     {
       id: 10,
-      title: "Eco-Friendly Studio",
+      title: "Unit 18",
       description:
         "Sustainable living space with energy-efficient appliances and green building features.",
-      img: "https://i.pinimg.com/736x/48/76/80/487680af596db0d5dd1f3acff679e6ab.jpg",
+      img: "https://uca731f7c64c7a531de8b601905d.previews.dropboxusercontent.com/p/thumb/ACjLwlm75695THZ3zzZB_EnvDNJaLF57EIZSo6XJzlrH8YWIw1iCiUcoYDNOuMtyJxe7G5T79rth5dbgt862WL2FFz6zkrdCEctjFflWMs3soi1hP1_Ar6sbL2sdGnMPlrN2Ix9sAodRujw1ysNuCcjXYG_uwoTxtX1RnCNXHI9ToA-2QoUo2v8ETZqYWVQbhGSnjmhepC2T-bYPWsnOvVqwutQv20IqmZgU2kL5FbbUowYDV8dGxrg2LkNGJl3W985_lcnKzZItQIhF5c8-CykVkcTe5RIbKncVbxSzNwKH1GUrWAIZZXCOtE38OtyfJcNEqc5RQFrOpHy5sGpgfGKub-xLNYa3r_pNE2pzJS4oVA/p.jpeg",
     },
     {
       id: 11,
-      title: "Artist's Loft",
+      title: "Unit 18",
       description:
         "Spacious loft with natural lighting, perfect for creative professionals.",
-      img: "https://i.pinimg.com/736x/a2/5f/14/a25f14e748d8bd58210ef74bca4d8ad2.jpg",
+      img: "https://uc5b82e5a1b49c12abbe356ffdc1.previews.dropboxusercontent.com/p/thumb/ACiZoFFUXRUvQ0cM5Ri_YcbGhLidryS0Mn9c7oLV3KUYOZuYwSb9XGVG7ZYv2dZv4I2qKEwmsSRLVVwKHN7w_xGJLHQqPXt9fbplj0JQIs8F8-mm4nJjgf8SD0ilIV-3w8rQcpmmewFQcSG9YrgUA_hNMN07FPwlDr1UZ3KVEDBcEfQrqIBY9jeiD7MHCH-HdTF9HmxXwVNkxaWcfN1m8-nskPKYtWBBg9b-PXosvbaCGsQZvabG1Yo6cAL2GVNMMW8bwXmMq29i99sCnrdBcqzD-0yY6DuCluXf__NKo1npjII2ZA7kOuuQSM8llEbp4YBO6o306VadGkbe9eBn9ds3pd82DaHrFYk9_F8J4CGkEw/p.jpeg",
     },
     {
       id: 12,
-      title: "Garden Terrace Suite",
+      title: "Unit 18",
       description:
         "Ground floor apartment with private terrace and direct garden access.",
-      img: "https://i.pinimg.com/736x/14/83/2e/14832edcea75d64a51176d0ebbba2328.jpg",
+      img: "https://uc144a68c58295829b5e35d00619.previews.dropboxusercontent.com/p/thumb/ACh-AjTw9apLgYENh6iQMLbpEsq9TXNEYJiFz-BPdjd1Vgck6HWe_KqQn7jlQbO0uwOdMZNKnaLhmF5L-j22_YoNqGiaBC8QR4yjZXPqm9gAzcBUuoyQTI9s5l2ZnX8kcfxyS9FDiaoUS-RFsAqrh29Sp_WlqoEg6W61BEFtAVQg1YF9XJYYfKx9ZKGnWzpQREaJfZ9DVEzcTqQJIsbd8kUDjIeuiHSkT2GPYqPNo6KosZEYnenlYWhbPWQJc9DesIpvL93ky5mFELEtElXd91Vz2ngSPztu0OAeFlnbDywUTBWa2frOCffwIjO1UZP1Qq_CE3tUehfrvquKs5SCptNxXISAK8Ydd3yfRFdWH8fF8g/p.jpeg",
     },
   ];
 

@@ -32,7 +32,7 @@ const ContactPage = () => {
       {/* Hero Section - Responsive height */}
       <div className="relative h-64 sm:h-80 md:h-96 overflow-hidden">
         <img
-          src="https://i.pinimg.com/736x/97/52/46/975246e3a4f934f1f9955c54518e0791.jpg"
+          src="https://uc5ee2d63b2b960fdbe04ee69203.previews.dropboxusercontent.com/p/thumb/ACiY-Fq1jsVAUb6WlE-JH5RANQh-V9g0nCNL4cGyQRsDWTA5P6k_frAEEuypL4r3VFgR6HWkFrr2z1z5PEVpzyWW9fxEplkhadCiY9R1muXZoBTDWxmuIPmGVRArYyzdFFJ9LMq1tZI1z1cQYzc0WjWkvbhXIQUhvmVeG1alMYzqALS2UV6aY4gcqJf39h4I-24SYe8AiJw6Ky6-VECZ8h6WnrayQcTKHl949ce-qe06C3TFTXn-_vvVSmcwSshnX5j2hkllt3W2SmPtyrHccXYzkw_bu6y_a0qRtiguPvfj_UDxwZ8ji3V-clt-2HhQOBWgSvJgG4QVQjAzKyuTjODxDfW4_-TedUgGG_0fzIQejQ/p.jpeg"
           alt="Luxury Property"
           className="w-full h-full object-cover"
         />
