@@ -34,7 +34,7 @@ const CopyableText = ({ text }) => {
   };
 
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex items-center justify-center gap-2">
       <span className="text-gray-700">{text}</span>
       <button
         onClick={handleCopy}
@@ -118,163 +118,113 @@ const ContactSection = () => {
   };
 
   return (
-    <div className="bg-white p-8 max-w-full mx-auto">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-        {/* Contact Form */}
-        <div className="bg-gray-50 p-8 rounded-lg shadow-sm border border-gray-200">
-          <h2 className="text-gray-900 text-2xl font-semibold mb-6">
-            Schedule a Call
-          </h2>
+    
+      <div className="w-full p-8">
+        <div className="grid grid-cols-1 gap-12">
+          <div className="bg-gray-100 p-8 rounded-lg shadow-sm border border-gray-200 mx-auto w-full max-w-3xl">
+            <h2 className="text-gray-900 text-2xl font-bold mb-6 ">
+              Book Now
+            </h2>
 
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <input
+                    type="text"
+                    name="fullName"
+                    value={formData.fullName}
+                    onChange={handleInputChange}
+                    placeholder="Full name*"
+                    className="w-full p-3 border-b border-gray-300 rounded bg-white text-gray-900"
+                    required
+                  />
+                </div>
+                <div>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    placeholder="Email address*"
+                    className="w-full p-3 border-b border-gray-300 rounded bg-white text-gray-900"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <input
+                    type="text"
+                    name="companyName"
+                    value={formData.companyName}
+                    onChange={handleInputChange}
+                    placeholder="Company name"
+                    className="w-full p-3 border-b border-gray-300 rounded bg-white text-gray-900"
+                  />
+                </div>
+                <div>
+                  <input
+                    type="tel"
+                    name="phoneNumber"
+                    value={formData.phoneNumber}
+                    onChange={handleInputChange}
+                    placeholder="Phone number"
+                    className="w-full p-3 border-b border-gray-300 rounded bg-white text-gray-900"
+                  />
+                </div>
+              </div>
+
               <div>
-                <input
-                  type="text"
-                  name="fullName"
-                  value={formData.fullName}
+                <textarea
+                  name="aboutProject"
+                  value={formData.aboutProject}
                   onChange={handleInputChange}
-                  placeholder="Full name*"
-                  className="w-full p-3 border-b border-gray-300 rounded bg-white text-gray-900"
+                  placeholder="About your project*"
+                  className="w-full p-3 border border-gray-300 rounded h-32 bg-white text-gray-900"
                   required
                 />
               </div>
-              <div>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  placeholder="Email address*"
-                  className="w-full p-3 border-b border-gray-300 rounded bg-white text-gray-900"
-                  required
-                />
-              </div>
-            </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <input
-                  type="text"
-                  name="companyName"
-                  value={formData.companyName}
-                  onChange={handleInputChange}
-                  placeholder="Company name"
-                  className="w-full p-3 border-b border-gray-300 rounded bg-white text-gray-900"
-                />
+              <div className="space-y-2">
+                <div className="flex items-start gap-2">
+                  <input
+                    type="checkbox"
+                    name="hasReadPrivacy"
+                    checked={formData.hasReadPrivacy}
+                    onChange={handleInputChange}
+                    className="mt-1"
+                    required
+                  />
+                  <span className="text-sm text-gray-600">
+                    I have read Privacy Notice*
+                  </span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <input
+                    type="checkbox"
+                    name="acceptsMarketing"
+                    checked={formData.acceptsMarketing}
+                    onChange={handleInputChange}
+                    className="mt-1"
+                  />
+                  <span className="text-sm text-gray-600">
+                    I agree to receive marketing materials
+                  </span>
+                </div>
               </div>
-              <div>
-                <input
-                  type="tel"
-                  name="phoneNumber"
-                  value={formData.phoneNumber}
-                  onChange={handleInputChange}
-                  placeholder="Phone number"
-                  className="w-full p-3 border-b border-gray-300 rounded bg-white text-gray-900"
-                />
-              </div>
-            </div>
 
-            <div>
-              <textarea
-                name="aboutProject"
-                value={formData.aboutProject}
-                onChange={handleInputChange}
-                placeholder="About your project*"
-                className="w-full p-3 border border-gray-300 rounded h-32 bg-white text-gray-900"
-                required
-              />
-            </div>
-
-            <div className="space-y-2">
-              <div className="flex items-start gap-2">
-                <input
-                  type="checkbox"
-                  name="hasReadPrivacy"
-                  checked={formData.hasReadPrivacy}
-                  onChange={handleInputChange}
-                  className="mt-1"
-                  required
-                />
-                <span className="text-sm text-gray-600">
-                  I have read Privacy Notice*
-                </span>
-              </div>
-              <div className="flex items-start gap-2">
-                <input
-                  type="checkbox"
-                  name="acceptsMarketing"
-                  checked={formData.acceptsMarketing}
-                  onChange={handleInputChange}
-                  className="mt-1"
-                />
-                <span className="text-sm text-gray-600">
-                  I agree to receive marketing materials
-                </span>
-              </div>
-            </div>
-
-            <button
-              type="submit"
-              className="w-full bg-[#ff385c] text-white py-3 rounded  transition-colors"
-            >
-              SEND MESSAGE
-            </button>
-          </form>
-        </div>
-
-        {/* Info Section */}
-        <div className="space-y-12">
-          <div>
-            <h3 className="text-gray-900 font-bold mb-6">
-              Bal Harbor Getaway in brief :-
-            </h3>
-            <div className="grid grid-cols-3 gap-8">
-              <div>
-                <div className="text-4xl text-[#ff385c] font-bold">15+</div>
-                <div className="text-sm text-gray-700">years of experience</div>
-              </div>
-              <div>
-                <div className="text-4xl text-[#ff385c] font-bold">500+</div>
-                <div className="text-sm text-gray-700">IT experts aboard</div>
-              </div>
-              <div>
-                <div className="text-4xl text-[#ff385c] font-bold">35+</div>
-                <div className="text-sm text-gray-700">active clients</div>
-              </div>
-            </div>
-          </div>
-
-          <div className="space-y-6">
-            <div>
-              <h3 className="text-gray-900 font-bold mb-4">
-                Project inquiries
-              </h3>
-              <CopyableText text="hello@balharborgetaway.com" />
-            </div>
-
-            <div>
-              <h3 className="text-gray-700 mb-4">Careers</h3>
-              <CopyableText text="careers@balharborgetaway.com" />
-            </div>
-
-            <div>
-              <h3 className="text-gray-700 mb-4">Phone number</h3>
-              <CopyableText text="+1 213 4019311" />
-            </div>
-
-            <div>
-              <h3 className="text-gray-700 mb-4">Our offices</h3>
-              <div className="flex flex-wrap gap-4">
-                {Object.entries(officeAddresses).map(([country, data]) => (
-                  <CustomDropdown key={country} country={country} data={data} />
-                ))}
-              </div>
-            </div>
+              <button
+                type="submit"
+                className="w-full bg-[#ff385c] text-white py-3 rounded transition-colors"
+              >
+                SEND MESSAGE
+              </button>
+            </form>
           </div>
         </div>
       </div>
-    </div>
+
   );
 };
 

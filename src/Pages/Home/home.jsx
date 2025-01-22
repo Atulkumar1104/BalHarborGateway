@@ -9,7 +9,7 @@ function Home() {
       <div className="text-center p-4 md:p-8 w-full max-w-full mx-auto">
         <div className="mb-4 md:mb-8">
           <img
-            src="https://i.pinimg.com/736x/64/39/59/6439590bc4403e8e5f8022f0953367a7.jpg"
+            src="https://cache.marriott.com/is/image/marriotts7prod/balharbour-cultural-new3:Wide-Hor?wid=2880&fit=constrain"
             alt="Welcome Image"
             className="rounded-xl shadow-xl mx-auto w-full h-48 sm:h-64 md:h-[450px] mt-8 md:mt-16 object-cover hover:shadow-2xl transition-shadow duration-300"
           />

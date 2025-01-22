@@ -1,6 +1,13 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const AboutUs = () => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/apartments");
+  };
+
   return (
     <section className="container mx-auto px-4 py-16 -mt-20">
       <div className="flex flex-col md:flex-row items-center p-4 md:p-8 gap-8">
@@ -32,10 +39,11 @@ const AboutUs = () => {
           </p>
 
           <button
+            onClick={handleClick}
             className="bg-red-500 text-white px-6 md:px-8 py-2 md:py-3 rounded-lg
             hover:bg-red-600 transition-colors duration-300 w-full md:w-auto"
           >
-            Schedule a Call
+            Our Apartments
           </button>
         </div>
       </div>
