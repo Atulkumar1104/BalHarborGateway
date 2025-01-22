@@ -46,7 +46,6 @@ const Header = () => {
 
   const navigationLinks = [
     { path: "/", text: "Home" },
-    {  text: "About" },
     { path: "/contact", text: "Contact" },
     { path: "/apartments", text: "Apartments" },
   ];
