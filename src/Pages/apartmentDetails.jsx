@@ -40,7 +40,7 @@ const ApartmentDetails = () => {
       title: "Unit 18",
       description:
         "Modern 2-bedroom apartment with stunning lake views, fully furnished kitchen, and private balcony.",
-      img: "https://uc144a68c58295829b5e35d00619.previews.dropboxusercontent.com/p/thumb/ACh-AjTw9apLgYENh6iQMLbpEsq9TXNEYJiFz-BPdjd1Vgck6HWe_KqQn7jlQbO0uwOdMZNKnaLhmF5L-j22_YoNqGiaBC8QR4yjZXPqm9gAzcBUuoyQTI9s5l2ZnX8kcfxyS9FDiaoUS-RFsAqrh29Sp_WlqoEg6W61BEFtAVQg1YF9XJYYfKx9ZKGnWzpQREaJfZ9DVEzcTqQJIsbd8kUDjIeuiHSkT2GPYqPNo6KosZEYnenlYWhbPWQJc9DesIpvL93ky5mFELEtElXd91Vz2ngSPztu0OAeFlnbDywUTBWa2frOCffwIjO1UZP1Qq_CE3tUehfrvquKs5SCptNxXISAK8Ydd3yfRFdWH8fF8g/p.jpeg",
+      img: "/images/1.jpg",
       price: "$200/Night",
       bedrooms: 2,
       bathrooms: 2,
@@ -56,7 +56,7 @@ const ApartmentDetails = () => {
       title: "Unit 18",
       description:
         "Efficient studio apartment in the heart of downtown. Perfect for young professionals.",
-      img: "https://ucfec0834f97ed010fa2fbfa0b13.previews.dropboxusercontent.com/p/thumb/ACifH9Kk_IBPSkReD0AD8gVA6gdgPJAPqt_KaQ0NSk6dqDYGUut3FEnfC-8MQvi4e3qnUcHAbL7WqGPvALsQNfqqKSEK22CXtqT12Typ95Q5ooqcG-B8c3l9b3Hs6pWiQg9-iz9iOf_FFTxpl14vPf6VWpN6fQajZpgo5HEld31SMz-952CN-1HZene_gSkVF0isqvR2br7T5XdsQ4HYTfKfrQ6Z048kO3UjumXT1jbqOGmLkCaXkj7JiCM-YSV66Die_pVCAj4dZgRlHFgHebN828Ij5b1MgUbo4yUxPm0D3dTIZ2Pv1XofxH92haxbv-eci_yvT1499VJVzDri88IfjeRI-84KIPR9usx4EFfmvg/p.jpeg",
+      img: "/images/2.jpg",
       price: "$200/Night",
       bedrooms: 1,
       bathrooms: 1,
@@ -72,7 +72,7 @@ const ApartmentDetails = () => {
       title: "Unit 18",
       description:
         "Spacious 3-bedroom apartment with private garden and modern amenities.",
-      img: "https://uca82608d65465054b3c33057e88.previews.dropboxusercontent.com/p/thumb/ACg9js7_HMosHbkyyniBjxdyWYp4JYZmv0rT3MjoJeKxQiL_avVl7FnjUui2utLgZJgj_MYfdCvbzgxJ3aaeLADEOiD1aAvSkEyhw53bVl78ib295KV9oQvAqPVmOldaRQN3yrPauVc0j5Srhni2Un4-8g_hUuaAt4pX2lTPbqgQ-FRsUFCJEpccR649f56nU2MZJWC9kOeqzJCoh2zSCkK1lGD_oSXM-eymbBVW8VIiE7E8uvIoGz-fx3MjNxKuqCNau0J2TLKGdpBtcXMmU3cRu3U8ekqLbYCKa4jSBl_07bRDzRmcaT7Z8h1KGbgQ8W9mDOSes_NyrWb52Ki2C6FXuQBJ05tX50B68jeVnh1pYQ/p.jpeg",
+      img: "/images/3.jpg",
       price: "$200/Night",
       bedrooms: 3,
       bathrooms: 2.5,
@@ -88,7 +88,7 @@ const ApartmentDetails = () => {
       title: "Unit 18",
       description:
         "Contemporary 1-bedroom loft with high ceilings and industrial design elements.",
-      img: "https://uca82608d65465054b3c33057e88.previews.dropboxusercontent.com/p/thumb/ACg9js7_HMosHbkyyniBjxdyWYp4JYZmv0rT3MjoJeKxQiL_avVl7FnjUui2utLgZJgj_MYfdCvbzgxJ3aaeLADEOiD1aAvSkEyhw53bVl78ib295KV9oQvAqPVmOldaRQN3yrPauVc0j5Srhni2Un4-8g_hUuaAt4pX2lTPbqgQ-FRsUFCJEpccR649f56nU2MZJWC9kOeqzJCoh2zSCkK1lGD_oSXM-eymbBVW8VIiE7E8uvIoGz-fx3MjNxKuqCNau0J2TLKGdpBtcXMmU3cRu3U8ekqLbYCKa4jSBl_07bRDzRmcaT7Z8h1KGbgQ8W9mDOSes_NyrWb52Ki2C6FXuQBJ05tX50B68jeVnh1pYQ/p.jpeg",
+      img: "/images/4.jpg",
       price: "$200/Night",
       bedrooms: 1,
       bathrooms: 1,
@@ -104,7 +104,7 @@ const ApartmentDetails = () => {
       title: "Unit 18",
       description:
         "Luxurious 3-bedroom penthouse with panoramic city views and private terrace.",
-      img: "https://uc454486c87fc77d0db39c547057.previews.dropboxusercontent.com/p/thumb/ACi7VcJid5SFHiGO3wFN_G0QPfu2OcCwV2XkwMcSmOxUXp68orDTAkaJ4NtJeaqSrKtAR1etQ4KIa0EY4gTLGG7dZnOh2H1zxsDXrdaqrZRUtBSbs-hkEK0cksvDxOb53O7HVv6Gl5yC2026O7kv0uDJ9Up5-2b17uznW3IpT_zQ6ZbbUSavejS9iyxvU-Zii9ls9mtT4TnL-dXIZ85MRxbuAqaED2C7vaTSmSDri1AJGV_cNW6K0OFt74sz3vfrG-1zML1s4wJgAcExjVU6OJlTIUaNz9xTpk1215xWtw5xZd6W30L1kRb7HLzkR1BgBuLEQ-_0uJu1HZWVpqY5AX16QxJcWgzV-LC4DxHwGjaywQ/p.jpeg",
+      img: "/images/5.jpg",
       price: "$200/Night",
       bedrooms: 3,
       bathrooms: 3.5,
