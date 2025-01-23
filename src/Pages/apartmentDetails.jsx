@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import {
   FaArrowLeft,
@@ -10,14 +10,30 @@ import {
   FaSwimmingPool,
 } from "react-icons/fa";
 
+import { X } from "lucide-react";
+
 const ApartmentDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const handleBack = () => {
-    navigate("/"); // Navigate to root/home page where apartments listing is
+    navigate("/");
   };
-  
+  const closeModal = () => setSelectedImage(null);
+
+  const galleryImages = [
+    "https://uc3c8f028386d9b1d396178a676d.previews.dropboxusercontent.com/p/thumb/ACgelWO3T18rafeMH08Nzcv2zDhkMOOZKl6LU_uoZrvAjYrTmVQfJt4Bcft1ZUcBM1YznIyHjpJEiVCy6z11uDm8G2DoHVdftGcRisfahuvNWu_fsBHairgj8GTdZ_KFYvu6P165nUE_pMzGzbFghsk414viKLJW4lDHCXzF9yZEf7qJByYCbNkD8xBDT-bZIQeavgJ1tT77NlbrIoKTVEkqJiJ86xnp-xYb1uC-RkpArPDs3JtLkesjWDLn-T5NRJsj9xbhWX0cqycHhxqM9i3hIwehEUdiHmUFOxZDwAqfA9YsAuiW1mgCX16x8NM4MfeR-4uVGJRmVIAGnr2YSCD8fTfZkbPeTLKiKuJc2LukOg/p.jpeg",
+    "https://uc89899a1ba6ca8ce649e9342711.previews.dropboxusercontent.com/p/thumb/ACgvr_4wJfoRk914Td2cmR4aJlp-KWOp6kaV4tYUJXT1Q1FVMeVow9XB-QY1XPeTP6ooI96fyYIVQoqLwMQ8UpX5xOYVAPsKyNj3XnnbyMlpwZr-2TWJVo4-DrYtF9py6LZdKtpP9_btiJVR-vWcd2weCOwBh462pBeiNLxdIeuv7Rsqq2mi-niAh6HCHIvrokbAiAL7dBr-Cx_-c71-uh2AdWYGoVmiAOzoyOdVr-CaubF1c8DQy73PXaVA43lCPH_1zJN_xErc3a9hE33PtMH8OpkakhNo69Yc7knP85L1HAdxvfrEKE-f8AWu2QRU0i1Z7-4HEPqdIsKPOlXoPrDl-gd5btD1kOtdzAW9lP0OfQ/p.jpeg",
+    "https://uc39219ba63ad22363b31e1d15ed.previews.dropboxusercontent.com/p/thumb/AChE0moHEKc3jzecy-auAVi2b8gnsfuSqte576Z-8Q7fyV8Khh9p_I6itWb1yylWvI4E8834_0pVRAZXIfa02BvngaOkuWtHqSOZfPXeAaSA9Teg8KqR-tr92kKdv1uYCqt1K4LU5agdiXdsL_Dt_9zfXUxRSMu5ru_s21M3gAvOHJNR3MDs19tUAPQLV1O4Alz3TfLpt94O0J_SPr40ToQ4KBoFlXUQODkjHHb0heZcZSMzJ0UZUcHw74CJ4bv62AwdVJQc7Wt2J9SLNoXVSEaL5OW1FDCb_IkT9Es1JVaHx9FaxGtfId9JJM1CNhsa3NyidKgaTOw3qcrPaSq7FahhbpPxTCGCQLVvbWY44zp-yQ/p.jpeg",
+    "https://uc5ee2d63b2b960fdbe04ee69203.previews.dropboxusercontent.com/p/thumb/ACgNZ5RaAjAM76knNNOxzF-E92bioD1gEynOOI95O75VpmbCauDzMqprL8sk_uU8rAF7D9Zukj8INW_APdhqW2bCv8BUVFcNS3mIFVNuTFGYyoPbmqi91SuzXXAE8t5reB2r5MgSnIfnnWuOZ4kTSgflD5tcE1T2G4lxjN5SdNNhFdfF6R_H0bKgIVi1RNQlUZaRxZbNkwVQkBtKvpg0ND0HewT-_-FAG-5SsSnpKNlC3YLH0qkWcc6mK0NGhzcUZSW9B_axBFpQen1Hmyw7Lb7wlpbM67b7h7vAwoqFf_WekAFKPq8yuX_Ji-rH3xL1tPzaCLZydiJclwZBnN1AQaGmSfQSSFvqWz4jbRkTejCGLw/p.jpeg",
+    "https://ucd072596514c59c736fa15c08da.previews.dropboxusercontent.com/p/thumb/AChyqVJHq6HFUPrXxFsuJA9eqrTuq6nH3sG03PdOjPcZkT-s33ttzFbwOs1wsBYf8aajt1mIwvGZkyLL55EXClLWMj0ruM0Fb0XHpNQGHtp40B1YiZTFj1F3ovqCkTbaGv-2vb0qk978MR92BzG-YdyjBW9K4_IXS2_gxGGnUv6MQBSTUxlgq3VvvK-CCCySXC5mZo3ovuHV-KID_uUoYOj-qFgTj_W-dRFQUCO_W1JqNvpVkSoybeyW4iM-tzMO6JmP7dUCyi03JK-q3jXzLVJAD_EUsZ3YN9SErFHSugunwERUufZ_KqhabI5OuyDx9OoVPgMeyGnKaY8IQrQFqT-bEVe-rDeBg6Hz74UiOvBuEw/p.jpeg",
+    "https://ucfb76479a56bf84435a15717eb3.previews.dropboxusercontent.com/p/thumb/ACh2WpHdEojS9KdgoHbvbD0U4BzrAyfkYrssHWQtt6OmrcqZrB8OCBiuC1cbSxbTYJttuDac5Q8AX0fkuzv5iF-7Xk4BpZkAhUPSrVo1T68mQk5PUUQ1c62oXQenC7xtml4idw888qw0w3E17f8OSq2Km4xuTrTpdTEmReyXLapxNYJ3GPc-02TNZH7NVnU83F4aaBaTbkhN-izA7fLJqQlsejdkFfaYHneRkw0nJ2jdhjx6hHQx73zv1L3nolAV9VHd9tsgiduKNoJFVaXy7q_S1MR78AI76WKUMJ1mTljJWlHN1cnxNojDGenVhRmVO3Lrj3ZhrRb1jjFk_A8nO0VUlGTXGr_gfoe59qnORlhUZg/p.jpeg",
+    "https://ucfb76479a56bf84435a15717eb3.previews.dropboxusercontent.com/p/thumb/ACh2WpHdEojS9KdgoHbvbD0U4BzrAyfkYrssHWQtt6OmrcqZrB8OCBiuC1cbSxbTYJttuDac5Q8AX0fkuzv5iF-7Xk4BpZkAhUPSrVo1T68mQk5PUUQ1c62oXQenC7xtml4idw888qw0w3E17f8OSq2Km4xuTrTpdTEmReyXLapxNYJ3GPc-02TNZH7NVnU83F4aaBaTbkhN-izA7fLJqQlsejdkFfaYHneRkw0nJ2jdhjx6hHQx73zv1L3nolAV9VHd9tsgiduKNoJFVaXy7q_S1MR78AI76WKUMJ1mTljJWlHN1cnxNojDGenVhRmVO3Lrj3ZhrRb1jjFk_A8nO0VUlGTXGr_gfoe59qnORlhUZg/p.jpeg",
+    "https://uc0d160c340863d07b4acf3bc192.previews.dropboxusercontent.com/p/thumb/ACji3TMVM-HTDEsr2wf-_elgzeiZMSRakeCFvrRad14ZahJuH-PszE1yOjZXayJZl-YAdIXBNNLpBxrjtt7KQVLIXhMvwKSXhmfpAnqlG_ildsakSDDWXfivgeNEPkpMiaj9O2ZSGA679C93nHu3lKfs5q5upAoVWgxKMjKNPFhxiJXzYIspRZqvd8tcqoptv5A2NqcFLIECqtNpW_uH4uDOPOTS0RJwcGi1VS0FKGmmuf_pyvwH3-f9SqOcS1J41gezK6LRDgFNewG7NhvgSRH4N-0BhJ_Uu1_q6WY5bTjFyn59PNwdooBnOzk8BrLDmaH6Y0G9SqBmGG5wjJ_JllKgVp2K44Kf0eJhvGDcBm2ioQ/p.jpeg",
+    "https://uca731f7c64c7a531de8b601905d.previews.dropboxusercontent.com/p/thumb/ACjVxJjpM-5ZF0DjjRuleKIvEQYVPZ3-JJok_7dFRMHAVo0gj0aJT8WokCy3Hol34u-jYQC1Wctk-X0Fhw_ts9Nbo6nzHSgO2apkReDgh93LNEzaHAGHSySIZikGWK7BNFWHV0e_5D5hglSJuwUmqT9HFI1Rh4Y2xE9a4BUxtdRT0bQrIxQpDiDQ2EvLA06K4Dps4QR5Tg7XhOjzJOwGJMMO7s6NL3riClKEcjsePsb5jfdYQKIju85lHl5mqwXbHQ8rkcUFkEG20XBEfWuWoBbN3Ek7C41T9nuCRkKGuRTGTJhSQD_VcXLQUkZA9ex-CrouUBDg0kW_8DxBjMIkAEZjcxLR4f3FkXPXBPV6lVInxw/p.jpeg",
+    "https://uc6f4313cda285db3514e7de7c76.previews.dropboxusercontent.com/p/thumb/AChm6_SK3gzHbOWdTa1T9d4moqD3EULYDJjocrDMT__--2Rd0D2uB-hGphk5s5zpVwql-l-MkH4M5KkmXtmSMpzsfo9nYBQCDECsAF7WoiYS0zdSitxptqHRr_EFvzFYgiaZ2ssRM_avw8LcwKuMO80rirhZYG2tpupuopPlS_uQS1SXcIeuQek7ExxX_Y_yyCN-iRmS6Tu9K0vWwH4iqL4VGfjAk591o8oRsUX1I4NKm9M-0sytXd3kN93DGOYjTu-fy5hgndkedVhVBnY1DemCPrU2vHoSDG8oJzJJfUlWlB2Y_8CHy7jGUP6qE9b4i_N2nIvhp_541TER546JKefXAIiYFC3RYDNwFLICCcN8aA/p.jpeg",
+  ];
   const apartments = [
     {
       id: 0,
@@ -25,13 +41,13 @@ const ApartmentDetails = () => {
       description:
         "Modern 2-bedroom apartment with stunning lake views, fully furnished kitchen, and private balcony.",
       img: "https://uc144a68c58295829b5e35d00619.previews.dropboxusercontent.com/p/thumb/ACh-AjTw9apLgYENh6iQMLbpEsq9TXNEYJiFz-BPdjd1Vgck6HWe_KqQn7jlQbO0uwOdMZNKnaLhmF5L-j22_YoNqGiaBC8QR4yjZXPqm9gAzcBUuoyQTI9s5l2ZnX8kcfxyS9FDiaoUS-RFsAqrh29Sp_WlqoEg6W61BEFtAVQg1YF9XJYYfKx9ZKGnWzpQREaJfZ9DVEzcTqQJIsbd8kUDjIeuiHSkT2GPYqPNo6KosZEYnenlYWhbPWQJc9DesIpvL93ky5mFELEtElXd91Vz2ngSPztu0OAeFlnbDywUTBWa2frOCffwIjO1UZP1Qq_CE3tUehfrvquKs5SCptNxXISAK8Ydd3yfRFdWH8fF8g/p.jpeg",
-      price: "$2,500/month",
+      price: "$200/Night",
       bedrooms: 2,
       bathrooms: 2,
       area: "1,200 sq ft",
       amenities: ["WiFi", "Parking", "Pool", "Gym"],
       fullDescription:
-        "Experience luxury living at its finest with this stunning lake view apartment. Featuring floor-to-ceiling windows, premium appliances, and designer furnishings throughout. The open-concept living area flows seamlessly onto a private balcony offering breathtaking views of the lake.",
+        "Stress our availability for Passover , Shavuot and, of course, the harsh winter  months of January, February and march. We Need to stress that we offer excellent totally kosher (for both peach and the entire year) complete apartments, pool all day, 4 short blocks from an excellent meaty and milky restaurant , all at an unbeatable price! 6 blocks from the beach!",
       location: "123 Lakefront Drive",
       availableFrom: "Immediate",
     },
@@ -41,13 +57,13 @@ const ApartmentDetails = () => {
       description:
         "Efficient studio apartment in the heart of downtown. Perfect for young professionals.",
       img: "https://ucfec0834f97ed010fa2fbfa0b13.previews.dropboxusercontent.com/p/thumb/ACifH9Kk_IBPSkReD0AD8gVA6gdgPJAPqt_KaQ0NSk6dqDYGUut3FEnfC-8MQvi4e3qnUcHAbL7WqGPvALsQNfqqKSEK22CXtqT12Typ95Q5ooqcG-B8c3l9b3Hs6pWiQg9-iz9iOf_FFTxpl14vPf6VWpN6fQajZpgo5HEld31SMz-952CN-1HZene_gSkVF0isqvR2br7T5XdsQ4HYTfKfrQ6Z048kO3UjumXT1jbqOGmLkCaXkj7JiCM-YSV66Die_pVCAj4dZgRlHFgHebN828Ij5b1MgUbo4yUxPm0D3dTIZ2Pv1XofxH92haxbv-eci_yvT1499VJVzDri88IfjeRI-84KIPR9usx4EFfmvg/p.jpeg",
-      price: "$1,200/month",
+      price: "$200/Night",
       bedrooms: 1,
       bathrooms: 1,
       area: "500 sq ft",
       amenities: ["WiFi", "Parking", "Laundry", "Security"],
       fullDescription:
-        "Located in the vibrant downtown district, this modern studio apartment offers the perfect blend of comfort and convenience. The thoughtfully designed space features high-end finishes, built-in storage solutions, and large windows that flood the apartment with natural light.",
+        "Stress our availability for Passover , Shavuot and, of course, the harsh winter months of January, February and march. We Need to stress that we offer excellent totally kosher (for both peach and the entire year) complete apartments, pool all day, 4 short blocks from an excellent meaty and milky restaurant , all at an unbeatable price! 6 blocks from the beach!",
       location: "456 Main Street",
       availableFrom: "Next Month",
     },
@@ -57,13 +73,13 @@ const ApartmentDetails = () => {
       description:
         "Spacious 3-bedroom apartment with private garden and modern amenities.",
       img: "https://uca82608d65465054b3c33057e88.previews.dropboxusercontent.com/p/thumb/ACg9js7_HMosHbkyyniBjxdyWYp4JYZmv0rT3MjoJeKxQiL_avVl7FnjUui2utLgZJgj_MYfdCvbzgxJ3aaeLADEOiD1aAvSkEyhw53bVl78ib295KV9oQvAqPVmOldaRQN3yrPauVc0j5Srhni2Un4-8g_hUuaAt4pX2lTPbqgQ-FRsUFCJEpccR649f56nU2MZJWC9kOeqzJCoh2zSCkK1lGD_oSXM-eymbBVW8VIiE7E8uvIoGz-fx3MjNxKuqCNau0J2TLKGdpBtcXMmU3cRu3U8ekqLbYCKa4jSBl_07bRDzRmcaT7Z8h1KGbgQ8W9mDOSes_NyrWb52Ki2C6FXuQBJ05tX50B68jeVnh1pYQ/p.jpeg",
-      price: "$3,200/month",
+      price: "$200/Night",
       bedrooms: 3,
       bathrooms: 2.5,
       area: "1,800 sq ft",
       amenities: ["WiFi", "Parking", "Garden", "Playground"],
       fullDescription:
-        "Perfect for families, this ground-floor apartment offers generous living spaces and a private garden. The modern kitchen comes fully equipped with stainless steel appliances, while the spacious bedrooms feature ample closet space and garden views.",
+        "Stress our availability for Passover , Shavuot and, of course, the harsh winter months of January, February and march. We Need to stress that we offer excellent totally kosher (for both peach and the entire year) complete apartments, pool all day, 4 short blocks from an excellent meaty and milky restaurant , all at an unbeatable price! 6 blocks from the beach!",
       location: "789 Garden Avenue",
       availableFrom: "Next Week",
     },
@@ -73,13 +89,13 @@ const ApartmentDetails = () => {
       description:
         "Contemporary 1-bedroom loft with high ceilings and industrial design elements.",
       img: "https://uca82608d65465054b3c33057e88.previews.dropboxusercontent.com/p/thumb/ACg9js7_HMosHbkyyniBjxdyWYp4JYZmv0rT3MjoJeKxQiL_avVl7FnjUui2utLgZJgj_MYfdCvbzgxJ3aaeLADEOiD1aAvSkEyhw53bVl78ib295KV9oQvAqPVmOldaRQN3yrPauVc0j5Srhni2Un4-8g_hUuaAt4pX2lTPbqgQ-FRsUFCJEpccR649f56nU2MZJWC9kOeqzJCoh2zSCkK1lGD_oSXM-eymbBVW8VIiE7E8uvIoGz-fx3MjNxKuqCNau0J2TLKGdpBtcXMmU3cRu3U8ekqLbYCKa4jSBl_07bRDzRmcaT7Z8h1KGbgQ8W9mDOSes_NyrWb52Ki2C6FXuQBJ05tX50B68jeVnh1pYQ/p.jpeg",
-      price: "$1,800/month",
+      price: "$200/Night",
       bedrooms: 1,
       bathrooms: 1,
       area: "850 sq ft",
       amenities: ["WiFi", "Parking", "Elevator", "Roof Deck"],
       fullDescription:
-        "This stunning loft apartment combines industrial charm with modern comfort. Features include exposed brick walls, 14-foot ceilings, and oversized windows. The open floor plan and flexible layout make it perfect for both living and working.",
+        "Stress our availability for Passover , Shavuot and, of course, the harsh winter months of January, February and march. We Need to stress that we offer excellent totally kosher (for both peach and the entire year) complete apartments, pool all day, 4 short blocks from an excellent meaty and milky restaurant , all at an unbeatable price! 6 blocks from the beach!",
       location: "101 Warehouse District",
       availableFrom: "Two Weeks",
     },
@@ -89,152 +105,29 @@ const ApartmentDetails = () => {
       description:
         "Luxurious 3-bedroom penthouse with panoramic city views and private terrace.",
       img: "https://uc454486c87fc77d0db39c547057.previews.dropboxusercontent.com/p/thumb/ACi7VcJid5SFHiGO3wFN_G0QPfu2OcCwV2XkwMcSmOxUXp68orDTAkaJ4NtJeaqSrKtAR1etQ4KIa0EY4gTLGG7dZnOh2H1zxsDXrdaqrZRUtBSbs-hkEK0cksvDxOb53O7HVv6Gl5yC2026O7kv0uDJ9Up5-2b17uznW3IpT_zQ6ZbbUSavejS9iyxvU-Zii9ls9mtT4TnL-dXIZ85MRxbuAqaED2C7vaTSmSDri1AJGV_cNW6K0OFt74sz3vfrG-1zML1s4wJgAcExjVU6OJlTIUaNz9xTpk1215xWtw5xZd6W30L1kRb7HLzkR1BgBuLEQ-_0uJu1HZWVpqY5AX16QxJcWgzV-LC4DxHwGjaywQ/p.jpeg",
-      price: "$5,500/month",
+      price: "$200/Night",
       bedrooms: 3,
       bathrooms: 3.5,
       area: "2,500 sq ft",
       amenities: ["WiFi", "Parking", "Pool", "Concierge", "Gym"],
       fullDescription:
-        "Experience unparalleled luxury in this spectacular penthouse suite. Features include a gourmet kitchen with top-of-the-line appliances, a master suite with spa-like bathroom, and a wraparound terrace offering breathtaking city views.",
+        "Stress our availability for Passover , Shavuot and, of course, the harsh winter months of January, February and march. We Need to stress that we offer excellent totally kosher (for both peach and the entire year) complete apartments, pool all day, 4 short blocks from an excellent meaty and milky restaurant , all at an unbeatable price! 6 blocks from the beach!",
       location: "1000 Skyline Boulevard",
       availableFrom: "Next Month",
     },
-    {
-      id: 5,
-      title: "Unit 18",
-      description:
-        "Charming studio apartment overlooking community gardens with updated appliances.",
-      img: "https://uc5b82e5a1b49c12abbe356ffdc1.previews.dropboxusercontent.com/p/thumb/ACiZoFFUXRUvQ0cM5Ri_YcbGhLidryS0Mn9c7oLV3KUYOZuYwSb9XGVG7ZYv2dZv4I2qKEwmsSRLVVwKHN7w_xGJLHQqPXt9fbplj0JQIs8F8-mm4nJjgf8SD0ilIV-3w8rQcpmmewFQcSG9YrgUA_hNMN07FPwlDr1UZ3KVEDBcEfQrqIBY9jeiD7MHCH-HdTF9HmxXwVNkxaWcfN1m8-nskPKYtWBBg9b-PXosvbaCGsQZvabG1Yo6cAL2GVNMMW8bwXmMq29i99sCnrdBcqzD-0yY6DuCluXf__NKo1npjII2ZA7kOuuQSM8llEbp4YBO6o306VadGkbe9eBn9ds3pd82DaHrFYk9_F8J4CGkEw/p.jpeg",
-      price: "$1,100/month",
-      bedrooms: 1,
-      bathrooms: 1,
-      area: "450 sq ft",
-      amenities: ["WiFi", "Garden Access", "Laundry", "Bike Storage"],
-      fullDescription:
-        "This delightful studio offers a peaceful retreat with views of the community gardens. Recently updated with modern appliances and finishes, the apartment features clever storage solutions and a well-designed layout that maximizes space.",
-      location: "202 Garden View Lane",
-      availableFrom: "Immediate",
-    },
-    {
-      id: 6,
-      title: "Unit 18",
-      description:
-        "Contemporary 2-bedroom apartment with open floor plan and smart home features.",
-      img: "https://ucc08743157b86c01d7b4221d578.previews.dropboxusercontent.com/p/thumb/ACg6BQcx8vKs7G77Y5pSxNwn4lFpoaaDTmXvsDu0PL5FzlyLseu1ujkZuiqoMFznqKFjMErPh-SyNW4xqRRxDvuykv-Z3xoUlI6s4dGo1szSm2XRBS8MK6M6LE3h3VVsFC6qcZYEGUFZsHyr5ZctnKwHC-lXKVaFG-KY2Zxkmg7hMmnFFeT1FTDmNUYb2i2LiWX1eW6hKpXIoeBdirZU3ceDdmrRFS1hF1neTh2KQ87YNPOFs6SMmZdNeCbeBFBvd0IVaP0sPU5ZaNzTB7cY3pgIzEtKY-18frlWTRCuXh98dagriTdW_TO7aoYzQ3BH0CbMdDLllkdLnCPcNdDJh5eAR-PNNU1Dq2nltJZWoa5_Ng/p.jpeg",
-      price: "$2,800/month",
-      bedrooms: 2,
-      bathrooms: 2,
-      area: "1,100 sq ft",
-      amenities: ["WiFi", "Parking", "Smart Home", "Storage"],
-      fullDescription:
-        "This sophisticated apartment combines modern design with cutting-edge technology. Features include integrated smart home systems, an open-concept living area, and a sleek kitchen with premium appliances. Both bedrooms offer en-suite bathrooms and walk-in closets.",
-      location: "303 Tech Avenue",
-      availableFrom: "Next Month",
-    },
-    {
-      id: 7,
-      title: "Unit 18",
-      description:
-        "Elegant 2-bedroom apartment with river views and access to community amenities.",
-      img: "https://uc39219ba63ad22363b31e1d15ed.previews.dropboxusercontent.com/p/thumb/ACiP-bZfBiMxo9kEnC4VWoHDMxACaGpLgtgipxg47mYwcDdk8vkK7LK31QPNkeVjqDAlCZK0L6ZtYnZL8dEybkdf8wt7Gsm4naJoiVJP3IrGNKlW-NeX3R5LK_i-jgihs14vVQt6xKqLtoFChSOVH9xU6Ki0Nr6sWs8owqd1U3z8zj12aKZUJmGeYv-NK5vDt_HS7_QhUnvFE4VuaBjNKyB-xN0QaJihkulQ0QQVKC7QT73pYxl0vZ29YaABdV1sEJo3mt3xA-prBIBYl6g5gk1K4eg__Vh5KgZUVyefxh65MjJZDXWdCgJ544mp06NY3v5sV19YNLaTFS0EblDRCnuXDdm7Pp3cYCfX5bqq6zlUSA/p.jpeg",
-      price: "$2,900/month",
-      bedrooms: 2,
-      bathrooms: 2,
-      area: "1,300 sq ft",
-      amenities: ["WiFi", "Parking", "Pool", "River Access"],
-      fullDescription:
-        "Enjoy waterfront living in this beautifully appointed apartment. The spacious interior features high-end finishes, a gourmet kitchen, and floor-to-ceiling windows showcasing stunning river views. Residents have access to premium community amenities including a riverside walking trail.",
-      location: "404 River Road",
-      availableFrom: "Two Weeks",
-    },
-    {
-      id: 8,
-      title: "Unit 18",
-      description:
-        "Historic building converted into modern loft spaces with original architectural details.",
-      img: "https://uc42abed1bffc61daad344b6f84e.previews.dropboxusercontent.com/p/thumb/ACjRNtg_Bk8a-j7lcYFnlrn3F1ZJIRSLubxQev4knk1YznNXANKhpBOhSIglqDQ6-vnM_e5X1plRzF2jxlUQ6QLHz2rYz14EsvifQwyC4kj7MgiOOnOIN6Y8sqPDKBwuCFuWgS4CXcaVMV5k6Zm95AhH9vf_aR4kQph9Ce-L_UE9nAWGeE2d077BeOiRp0mkKePC58BUTsfWxt37J9enZ4Qnn70-ug7Fj_632ySh7G1D9dxYfO9jHc2gMgUFlTaYJMIDclu9t5GCzJucRXSryOUrJVrnTsLyyEDcvweuBY8GU41sXHmBOEkGAuIXvidbQywVQxAW-r82JI9aOuCE_NaBKeLjkcqAL9JP9in1d0a5ow/p.jpeg",
-      price: "$2,200/month",
-      bedrooms: 1,
-      bathrooms: 1.5,
-      area: "950 sq ft",
-      amenities: ["WiFi", "Parking", "Elevator", "Storage"],
-      fullDescription:
-        "This unique loft apartment seamlessly blends historic charm with modern convenience. Original features include exposed brick walls and timber beams, while modern updates provide all the comforts of contemporary living. The soaring ceilings and large windows create an inspiring living space.",
-      location: "505 Heritage Square",
-      availableFrom: "Next Month",
-    },
-    {
-      id: 9,
-      title: "Unit 18",
-      description:
-        "High-rise apartment with floor-to-ceiling windows and stunning city skyline views.",
-      img: "https://uc454486c87fc77d0db39c547057.previews.dropboxusercontent.com/p/thumb/ACi7VcJid5SFHiGO3wFN_G0QPfu2OcCwV2XkwMcSmOxUXp68orDTAkaJ4NtJeaqSrKtAR1etQ4KIa0EY4gTLGG7dZnOh2H1zxsDXrdaqrZRUtBSbs-hkEK0cksvDxOb53O7HVv6Gl5yC2026O7kv0uDJ9Up5-2b17uznW3IpT_zQ6ZbbUSavejS9iyxvU-Zii9ls9mtT4TnL-dXIZ85MRxbuAqaED2C7vaTSmSDri1AJGV_cNW6K0OFt74sz3vfrG-1zML1s4wJgAcExjVU6OJlTIUaNz9xTpk1215xWtw5xZd6W30L1kRb7HLzkR1BgBuLEQ-_0uJu1HZWVpqY5AX16QxJcWgzV-LC4DxHwGjaywQ/p.jpeg",
-      price: "$3,100/month",
-      bedrooms: 2,
-      bathrooms: 2,
-      area: "1,400 sq ft",
-      amenities: ["WiFi", "Parking", "Gym", "Roof Deck"],
-      fullDescription:
-        "Located on the 25th floor, this spectacular apartment offers unobstructed city views through wall-to-wall windows. The modern interior features premium finishes, a chef's kitchen, and a spacious primary suite. Building amenities include a state-of-the-art fitness center and rooftop lounge.",
-      location: "606 Sky Tower",
-      availableFrom: "Immediate",
-    },
-    {
-      id: 10,
-      title: "Unit 18",
-      description:
-        "Sustainable living space with energy-efficient appliances and green building features.",
-      img: "https://uca731f7c64c7a531de8b601905d.previews.dropboxusercontent.com/p/thumb/ACjLwlm75695THZ3zzZB_EnvDNJaLF57EIZSo6XJzlrH8YWIw1iCiUcoYDNOuMtyJxe7G5T79rth5dbgt862WL2FFz6zkrdCEctjFflWMs3soi1hP1_Ar6sbL2sdGnMPlrN2Ix9sAodRujw1ysNuCcjXYG_uwoTxtX1RnCNXHI9ToA-2QoUo2v8ETZqYWVQbhGSnjmhepC2T-bYPWsnOvVqwutQv20IqmZgU2kL5FbbUowYDV8dGxrg2LkNGJl3W985_lcnKzZItQIhF5c8-CykVkcTe5RIbKncVbxSzNwKH1GUrWAIZZXCOtE38OtyfJcNEqc5RQFrOpHy5sGpgfGKub-xLNYa3r_pNE2pzJS4oVA/p.jpeg",
-      price: "$1,400/month",
-      bedrooms: 1,
-      bathrooms: 1,
-      area: "550 sq ft",
-      amenities: ["WiFi", "Bike Storage", "Solar Power", "Composting"],
-      fullDescription:
-        "This innovative studio apartment sets new standards for sustainable urban living. Features include energy-efficient appliances, solar power integration, and smart climate control systems. The thoughtful design maximizes natural light and airflow while minimizing environmental impact.",
-      location: "707 Green Street",
-      availableFrom: "Next Week",
-    },
-    {
-      id: 11,
-      title: "Unit 18",
-      description:
-        "Spacious loft with natural lighting, perfect for creative professionals.",
-      img: "https://uc5b82e5a1b49c12abbe356ffdc1.previews.dropboxusercontent.com/p/thumb/ACiZoFFUXRUvQ0cM5Ri_YcbGhLidryS0Mn9c7oLV3KUYOZuYwSb9XGVG7ZYv2dZv4I2qKEwmsSRLVVwKHN7w_xGJLHQqPXt9fbplj0JQIs8F8-mm4nJjgf8SD0ilIV-3w8rQcpmmewFQcSG9YrgUA_hNMN07FPwlDr1UZ3KVEDBcEfQrqIBY9jeiD7MHCH-HdTF9HmxXwVNkxaWcfN1m8-nskPKYtWBBg9b-PXosvbaCGsQZvabG1Yo6cAL2GVNMMW8bwXmMq29i99sCnrdBcqzD-0yY6DuCluXf__NKo1npjII2ZA7kOuuQSM8llEbp4YBO6o306VadGkbe9eBn9ds3pd82DaHrFYk9_F8J4CGkEw/p.jpeg",
-      price: "$2,000/month",
-      bedrooms: 1,
-      bathrooms: 1,
-      area: "900 sq ft",
-      amenities: ["WiFi", "Freight Elevator", "Studio Space", "Storage"],
-      fullDescription:
-        "Designed with creators in mind, this expansive loft offers abundant natural light through massive windows and an open floor plan perfect for a live/work lifestyle. The industrial-chic space features concrete floors, exposed ductwork, and flexible areas that can be adapted to various creative pursuits.",
-      location: "808 Arts District",
-      availableFrom: "Two Weeks",
-    },
-    {
-      id: 12,
-      title: "Unit 18",
-      description:
-        "Ground floor apartment with private terrace and direct garden access.",
-      img: "https://uc144a68c58295829b5e35d00619.previews.dropboxusercontent.com/p/thumb/ACh-AjTw9apLgYENh6iQMLbpEsq9TXNEYJiFz-BPdjd1Vgck6HWe_KqQn7jlQbO0uwOdMZNKnaLhmF5L-j22_YoNqGiaBC8QR4yjZXPqm9gAzcBUuoyQTI9s5l2ZnX8kcfxyS9FDiaoUS-RFsAqrh29Sp_WlqoEg6W61BEFtAVQg1YF9XJYYfKx9ZKGnWzpQREaJfZ9DVEzcTqQJIsbd8kUDjIeuiHSkT2GPYqPNo6KosZEYnenlYWhbPWQJc9DesIpvL93ky5mFELEtElXd91Vz2ngSPztu0OAeFlnbDywUTBWa2frOCffwIjO1UZP1Qq_CE3tUehfrvquKs5SCptNxXISAK8Ydd3yfRFdWH8fF8g/p.jpeg",
-      price: "$2,400/month",
-      bedrooms: 2,
-      bathrooms: 2,
-      area: "1,150 sq ft",
-      amenities: ["WiFi", "Parking", "Private Garden", "Storage"],
-      fullDescription:
-        "This charming ground-floor apartment offers the best of indoor-outdoor living. The spacious interior opens onto a private terrace and garden, perfect for entertaining or relaxing. Inside, you'll find updated finishes, a modern kitchen, and generous bedroom suites.",
-      location: "909 Garden Court",
-      availableFrom: "Next Month",
-    },
   ];
-
 
   const apartment = apartments.find((apt) => apt.id === parseInt(id));
 
   if (!apartment) {
     return <div className="text-center p-4 md:p-8">Apartment not found</div>;
   }
+
+  // Extract numeric price value and calculate tax
+  const basePrice = parseInt(apartment.price.replace(/[^0-9]/g, ""));
+  const taxRate = 0.13; // 13% Florida sales tax
+  const taxAmount = basePrice * taxRate;
+  const totalPrice = basePrice + taxAmount;
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -244,17 +137,18 @@ const ApartmentDetails = () => {
           onClick={handleBack}
           className="w-full p-4 flex items-center justify-center text-gray-700 hover:bg-gray-50"
         >
-           <FaArrowLeft className="mr-2" />
+          <FaArrowLeft className="mr-2" />
           Back to Apartments
         </button>
       </div>
-   
-      {/* Original Apartment Details Section */}
-      <div className="p-4 md:p-8">
+
+      {/* Apartment Details Section */}
+      
+      <div className="p-4  md:p-8">
         <div className="max-w-6xl mx-auto">
           <button
             onClick={() => navigate(-1)}
-            className="mb-4 md:mb-6 flex items-center gap-2 text-gray-600 hover:text-gray-900"
+            className="mb-4 md:mb-6 flex items-center mt-3 gap-2 text-gray-600 hover:text-gray-900"
           >
             <FaArrowLeft /> Back to listings
           </button>
@@ -278,8 +172,16 @@ const ApartmentDetails = () => {
                     {apartment.location}
                   </p>
                 </div>
-                <div className="text-2xl md:text-3xl font-bold text-[#ff385c]">
-                  {apartment.price}
+                <div className="flex flex-col items-end">
+                  <div className="text-2xl md:text-3xl font-bold text-[#ff385c]">
+                    {apartment.price}
+                  </div>
+                  <div className="text-sm text-gray-600">
+                    + ${taxAmount.toFixed(2)} (13% Florida sales tax)
+                  </div>
+                  <div className="text-lg font-semibold text-gray-800 mt-1">
+                    Total: ${totalPrice.toFixed(2)}/Night
+                  </div>
                 </div>
               </div>
 
@@ -305,9 +207,19 @@ const ApartmentDetails = () => {
                 <h2 className="text-xl md:text-2xl font-semibold mb-4">
                   Description
                 </h2>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-600 leading-relaxed mb-4">
                   {apartment.fullDescription}
                 </p>
+                <ul className="list-disc pl-5 space-y-2 text-gray-600">
+                  <li>
+                    Excellent totally kosher facilities for both Pesach and
+                    year-round use with complete apartment amenities
+                  </li>
+                  <li>
+                    Full-day pool access, convenient location just 4 blocks from
+                    kosher restaurants and 6 blocks from the beach
+                  </li>
+                </ul>
               </div>
 
               <div className="mb-8">
@@ -354,6 +266,53 @@ const ApartmentDetails = () => {
           </div>
         </div>
       </div>
+      {/* Image Gallery Section */}
+      <div className="max-w-[1410px] mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
+          Property Gallery
+        </h2>
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+          {galleryImages.map((image, index) => (
+            <div
+              key={index}
+              className="relative group overflow-hidden rounded-lg cursor-pointer"
+              onClick={() => setSelectedImage(image)}
+            >
+              <img
+                src={image}
+                alt={`Gallery ${index + 1}`}
+                className="w-full h-72 object-cover transition-transform duration-300 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-opacity duration-300" />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Modal */}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"
+          onClick={closeModal}
+        >
+          <div
+            className="relative max-w-7xl w-full"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={closeModal}
+              className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors"
+            >
+              <X size={24} />
+            </button>
+            <img
+              src={selectedImage}
+              alt="Full size"
+              className="max-h-[90vh] mx-auto object-contain"
+            />
+          </div>
+        </div>
+      )}
 
       {/* Article Section with Responsive Contact Form */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -557,6 +516,13 @@ const ApartmentDetails = () => {
                   Book Now
                 </button>
               </form>
+              <div className="mt-4 text-sm text-gray-400">
+                <p>Base Rent: {apartment.price}</p>
+                <p>Florida Sales Tax (13%): ${taxAmount.toFixed(2)}</p>
+                <p className="font-semibold">
+                  Total Monthly: ${totalPrice.toFixed(2)}
+                </p>
+              </div>
             </div>
           </div>
         </div>

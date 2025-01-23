@@ -1,152 +1,161 @@
 import React from "react";
 
-const AboutPage = () => {
-  return (
-    <div>
-      <div className="max-w-7xl mx-auto px-4 py-12 md:py-28">
-        <div className="text-center mb-8 md:mb-16">
-          <h2 className="text-gray-600 text-xl md:text-2xl relative z-20 mb-4 md:mb-6">
-            SOLVING A COMMON PROBLEM
-          </h2>
-          <h1 className="text-4xl md:text-7xl font-bold text-[#ff385c] mb-6 md:mb-8 relative z-20">
-            Finding a home
-            <br />
-            in the big city
-          </h1>
-          <div className="flex justify-center mb-4 md:mb-6 z-0 -mt-16 md:-mt-32">
-            <img
-              src="https://i.pinimg.com/736x/bd/9c/17/bd9c17baa0a31f41d34bb1470a4c61d0.jpg"
-              alt="City housing problem illustration"
-              className="w-full max-w-sm md:max-w-2xl"
-            />
-          </div>
+const AboutUs = () => {
+ return (
+   <div className="w-full relative">
+     {/* Animated background pattern */}
+     <div className="absolute inset-0 opacity-[0.05]">
+       <div
+         className="w-full h-full"
+         style={{
+           backgroundImage: `
+              linear-gradient(30deg, rgb(75, 85, 99) 12%, transparent 12.5%, transparent 87%, rgb(75, 85, 99) 87.5%, rgb(75, 85, 99)),
+              linear-gradient(150deg, rgb(75, 85, 99) 12%, transparent 12.5%, transparent 87%, rgb(75, 85, 99) 87.5%, rgb(75, 85, 99)),
+              linear-gradient(30deg, rgb(75, 85, 99) 12%, transparent 12.5%, transparent 87%, rgb(75, 85, 99) 87.5%, rgb(75, 85, 99)),
+              linear-gradient(150deg, rgb(75, 85, 99) 12%, transparent 12.5%, transparent 87%, rgb(75, 85, 99) 87.5%, rgb(75, 85, 99))
+            `,
+           backgroundSize: "80px 140px",
+           backgroundPosition: "0 0, 0 0, 40px 70px, 40px 70px",
+           animation: "moveBackground 10s linear infinite",
+         }}
+       ></div>
+     </div>
 
-          <div className="text-gray-600 text-left max-w-6xl mx-auto text-base md:text-lg space-y-4 md:space-y-6 mb-8 md:mb-16">
-            <p>
-              Our home-solutions firm, Bal Harbor Getaway, was established in
-              Bengaluru by Amarendra Sahu, Deepak Dhar, Jitendra Jagadev and
-              Smruti Parida in January 2015. All four founders had experienced a
-              common problem – finding a home in the big city. Young people
-              faced different kinds of discrimination. Single women and
-              bachelors are considered unreliable. Migrants from other places
-              are viewed with suspicion as they appear as 'foreigners' in a new
-              city. Further, many newcomers did not have the knowhow to get
-              around, lacking access to local insights in a new city.
-            </p>
-            <p>
-              We concluded that people leaving homes to relocate to another city
-              needed more than just a house. They needed a place they could call
-              home, a community where they would be accepted and a platform
-              which allows connections to various other access points.
-            </p>
-          </div>
-        </div>
-      </div>
+     <style>
+       {`
+          @keyframes moveBackground {
+            0% {
+              background-position: 0 0, 0 0, 40px 70px, 40px 70px;
+            }
+            100% {
+              background-position: 80px 140px, 80px 140px, 120px 210px, 120px 210px;
+            }
+          }
+        `}
+     </style>
 
-      <div className="w-full bg-gray-100 -mt-8 md:-mt-20">
-        <div className="max-w-4xl mx-auto px-4 py-8 md:py-4">
-          <div className="flex flex-col md:flex-row items-center gap-6 md:gap-12">
-            <div className="w-full md:w-1/2">
-              <img
-                src="https://i.pinimg.com/736x/b1/6d/72/b16d729befb42c4f9cf1aaa7e93a3b3e.jpg"
-                alt="Community living"
-                className="rounded-lg w-full md:h-96 md:w-96 shadow-lg object-cover"
-              />
-            </div>
-            <div className="w-full md:w-1/2 text-center md:text-left">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4 md:mb-6">
-                Creating Communities That Matter
-              </h2>
-            </div>
-          </div>
-        </div>
-      </div>
+     {/* Hero Section */}
+     <div className="relative h-screen mb-20">
+       <img
+         src="https://uc5ee2d63b2b960fdbe04ee69203.previews.dropboxusercontent.com/p/thumb/ACgNZ5RaAjAM76knNNOxzF-E92bioD1gEynOOI95O75VpmbCauDzMqprL8sk_uU8rAF7D9Zukj8INW_APdhqW2bCv8BUVFcNS3mIFVNuTFGYyoPbmqi91SuzXXAE8t5reB2r5MgSnIfnnWuOZ4kTSgflD5tcE1T2G4lxjN5SdNNhFdfF6R_H0bKgIVi1RNQlUZaRxZbNkwVQkBtKvpg0ND0HewT-_-FAG-5SsSnpKNlC3YLH0qkWcc6mK0NGhzcUZSW9B_axBFpQen1Hmyw7Lb7wlpbM67b7h7vAwoqFf_WekAFKPq8yuX_Ji-rH3xL1tPzaCLZydiJclwZBnN1AQaGmSfQSSFvqWz4jbRkTejCGLw/p.jpeg"
+         alt="Luxury Apartment Exterior"
+         className="w-full h-full object-cover"
+       />
+       <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+         <h1 className="text-6xl font-bold text-white text-center max-w-4xl px-4">
+           Kosher Bal Harbor Getway
+         </h1>
+       </div>
+     </div>
 
-      <div className="bg-white py-8 md:py-16">
-        <div className="max-w-6xl mx-auto px-4">
-          <div>
-            <p className="text-gray-600 text-base md:text-lg mb-4">
-              At Bal Harbor Getaway we soon realized that it was necessary to go
-              beyond basics and create a platform that could do much more than
-              just solve the immediate problems of space and peripherals. With
-              globalization and communication taking a forefront, we are aware
-              that society is becoming more disparate. Our response to this is -
-              No city should be a stranger; no person should feel discriminated.
-              The philosophy behind Bal Harbor Getaway grew to create an
-              inclusive living environment where youth have choices but are also
-              required to take ownership.
-            </p>
-            <p className="text-gray-600 text-base md:text-lg">
-              Tenants would have options so that they could choose according to
-              their budget and personal preferences. The burden on owners would
-              get reduced - to look for responsible tenants, do background
-              checks and chase after tenants to pay in their dues. In the
-              future, we believe Bal Harbor Getaway as a platform will grow in
-              many other directions, with housing as the core focus.
-            </p>
-          </div>
-        </div>
-      </div>
+     {/* About Section */}
+     <div className="max-w-7xl mx-auto px-4 mb-32">
+       <p className="text-xl text-gray-700 leading-relaxed max-w-4xl mx-auto text-center">
+         At Luxury Living, we believe in creating more than just apartments – we
+         craft living experiences. Our commitment to excellence drives us to
+         innovate constantly, ensuring each resident enjoys unparalleled comfort
+         and style. With over a decade of expertise, we've mastered the art of
+         blending luxury with functionality, creating spaces that truly feel
+         like home.
+       </p>
+     </div>
 
-      <div className="bg-gray-50 py-8 md:py-16">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-              <img
-                src="https://i.pinimg.com/736x/e4/09/6f/e4096f0afce5bbb76ef00df733a2e951.jpg"
-                alt="Nestie Bike Club"
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-4 md:p-6">
-                <h3 className="text-lg md:text-xl font-bold mb-2">
-                  Nestie Bike Club
-                </h3>
-                <p className="text-gray-600 text-sm md:text-base">
-                  Some of our Nesties love to ride. Short bike trips excite this
-                  bunch, and they make sure they get together every weekend.
-                </p>
-              </div>
-            </div>
+     {/* Features Grid */}
+     <div className="max-w-7xl mx-auto px-4 space-y-32 mb-32">
+       {/* Section 1 */}
+       <div className="flex flex-col md:flex-row items-center gap-16">
+         <div className="w-full md:w-1/2">
+           <img
+             src="https://uc0d160c340863d07b4acf3bc192.previews.dropboxusercontent.com/p/thumb/ACji3TMVM-HTDEsr2wf-_elgzeiZMSRakeCFvrRad14ZahJuH-PszE1yOjZXayJZl-YAdIXBNNLpBxrjtt7KQVLIXhMvwKSXhmfpAnqlG_ildsakSDDWXfivgeNEPkpMiaj9O2ZSGA679C93nHu3lKfs5q5upAoVWgxKMjKNPFhxiJXzYIspRZqvd8tcqoptv5A2NqcFLIECqtNpW_uH4uDOPOTS0RJwcGi1VS0FKGmmuf_pyvwH3-f9SqOcS1J41gezK6LRDgFNewG7NhvgSRH4N-0BhJ_Uu1_q6WY5bTjFyn59PNwdooBnOzk8BrLDmaH6Y0G9SqBmGG5wjJ_JllKgVp2K44Kf0eJhvGDcBm2ioQ/p.jpeg"
+             alt="Premium Amenities"
+             className="w-full h-96 object-cover rounded-lg shadow-xl"
+           />
+         </div>
+         <div className="w-full md:w-1/2 space-y-6">
+           <h2 className="text-4xl font-bold text-gray-800">Pool Amenities</h2>
+           <p className="text-lg text-gray-600">
+             Dive into relaxation with our state-of-the-art pool amenities,
+             designed for both leisure and fitness. Whether you’re enjoying a
+             refreshing swim, lounging by the poolside, or unwinding after a
+             long day, our pool area offers the perfect escape. With clean,
+             well-maintained facilities and a serene atmosphere, it’s more than
+             just a pool—it’s your personal oasis.
+           </p>
+         </div>
+       </div>
 
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-              <img
-                src="https://i.pinimg.com/736x/22/59/7e/22597eb5571a15e6d476041cb826ef01.jpg"
-                alt="Nestie Sports Club"
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-4 md:p-6">
-                <h3 className="text-lg md:text-xl font-bold mb-2">
-                  Nestie Sports Club
-                </h3>
-                <p className="text-gray-600 text-sm md:text-base">
-                  Some of our Nesties love to play. Sports excite this bunch,
-                  and they make sure they get together every weekend.
-                </p>
-              </div>
-            </div>
+       {/* Section 2 */}
+       <div className="flex flex-col md:flex-row-reverse items-center gap-16">
+         <div className="w-full md:w-1/2">
+           <img
+             src="https://uca731f7c64c7a531de8b601905d.previews.dropboxusercontent.com/p/thumb/ACjVxJjpM-5ZF0DjjRuleKIvEQYVPZ3-JJok_7dFRMHAVo0gj0aJT8WokCy3Hol34u-jYQC1Wctk-X0Fhw_ts9Nbo6nzHSgO2apkReDgh93LNEzaHAGHSySIZikGWK7BNFWHV0e_5D5hglSJuwUmqT9HFI1Rh4Y2xE9a4BUxtdRT0bQrIxQpDiDQ2EvLA06K4Dps4QR5Tg7XhOjzJOwGJMMO7s6NL3riClKEcjsePsb5jfdYQKIju85lHl5mqwXbHQ8rkcUFkEG20XBEfWuWoBbN3Ek7C41T9nuCRkKGuRTGTJhSQD_VcXLQUkZA9ex-CrouUBDg0kW_8DxBjMIkAEZjcxLR4f3FkXPXBPV6lVInxw/p.jpeg"
+             alt="Location Excellence"
+             className="w-full h-96 object-cover rounded-lg shadow-xl"
+           />
+         </div>
+         <div className="w-full md:w-1/2 space-y-6">
+           <h2 className="text-4xl font-bold text-gray-800">Prime Locations</h2>
+           <p className="text-lg text-gray-600">
+             Discover the perfect blend of convenience and luxury with our
+             properties situated in prime locations. Whether you desire
+             proximity to bustling business hubs, renowned schools, vibrant
+             shopping centers, or tranquil parks, our apartments are
+             thoughtfully positioned to offer the best of urban living. Enjoy
+             easy access to essential amenities and a lifestyle that keeps you
+             connected to everything you need.
+           </p>
+         </div>
+       </div>
 
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-              <img
-                src="https://i.pinimg.com/736x/59/c0/a5/59c0a58255e4f2043550fe55268d9442.jpg"
-                alt="Nestie Nights"
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-4 md:p-6">
-                <h3 className="text-lg md:text-xl font-bold mb-2">
-                  Nestie Nights
-                </h3>
-                <p className="text-gray-600 text-sm md:text-base">
-                  Some of our Nesties love to party. Weekend vibes is what this
-                  bunch trips on, and they make sure they shake a leg every
-                  month.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+       {/* Section 3 */}
+       <div className="flex flex-col md:flex-row items-center gap-16">
+         <div className="w-full md:w-1/2">
+           <img
+             src="https://uc28d668bf1fd2cb3e6d297bc22a.previews.dropboxusercontent.com/p/thumb/ACgjCGXFKxv6UqA2Bh1yn7dEJR2GsZavDXpql_ir1mZyt-ERelxR-pgvKd9d3Af4ebT2mjffYTj9X6o1SC2ohWn9CK7hPo040Fc6fcglCwBeoJdO6xEj_XKJqto3I237zk4tF0zgw1wQeGZUYaDe2ehOC_p3R3tcYNWpQmmiNhxDCQXEbdMQoB7b4VXvqkDBrrB_kK7LPZQ0_cfvY05ULYwZxA6GmUuECWUZAjTWdTkfskJGWFuRmFtx3CfuyfEYjVOG0vs-nnycYiyl5IzobP_J1MIJ-BcvvO__XnYqr5lyLCGHHB6TaFelE2VfPKpwcy2ClBqs3kR_yqolEwxf5MDMmDIMpwQ-RHQ0NRAVALM3HA/p.jpeg"
+             alt="Customer Service"
+             className="w-full h-96 object-cover rounded-lg shadow-xl"
+           />
+         </div>
+         <div className="w-full md:w-1/2 space-y-6">
+           <h2 className="text-4xl font-bold text-gray-800">
+             Round-the-Clock Apartment Services
+           </h2>
+           <p className="text-lg text-gray-600">
+             Experience unparalleled convenience with our round-the-clock
+             apartment services. Whether it’s a late-night maintenance request,
+             assistance with your living needs, or ensuring the security of your
+             home, our dedicated team is available 24/7 to provide prompt and
+             reliable support. Your comfort and peace of mind are our top
+             priorities, making every moment in your apartment truly
+             exceptional.
+           </p>
+         </div>
+       </div>
+     </div>
+
+     {/* Company Stats */}
+     <div className="bg-gray-50 -mt-16 py-8">
+       <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+         <div className="text-center bg-[#ff385c] rounded-lg p-8 transform hover:scale-105 transition-transform duration-300">
+           <h3 className="text-4xl font-bold text-white mb-2">10+</h3>
+           <p className="text-white">Years of Excellence</p>
+         </div>
+         <div className="text-center bg-[#ff385c] rounded-lg p-8 transform hover:scale-105 transition-transform duration-300">
+           <h3 className="text-4xl font-bold text-white mb-2">750+</h3>
+           <p className="text-white">Happy Families</p>
+         </div>
+         <div className="text-center bg-[#ff385c] rounded-lg p-8 transform hover:scale-105 transition-transform duration-300">
+           <h3 className="text-4xl font-bold text-white mb-2">20+</h3>
+           <p className="text-white">Premium Properties</p>
+         </div>
+         <div className="text-center bg-[#ff385c] rounded-lg p-8 transform hover:scale-105 transition-transform duration-300">
+           <h3 className="text-4xl font-bold text-white mb-2">24/7</h3>
+           <p className="text-white">Support & Maintenance</p>
+         </div>
+       </div>
+     </div>
+   </div>
+ );
 };
 
-export default AboutPage;
+export default AboutUs;

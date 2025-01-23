@@ -33,7 +33,7 @@ const Footer = () => {
                   Home
                 </Link>
               </li>
-             
+
               <li>
                 <Link
                   to="/apartments"
@@ -79,8 +79,8 @@ const Footer = () => {
               </a>
             </div>
             <div className="text-gray-600">
-              <p>Email: info@balharborgetaway.com</p>
-              <p>Phone: (555) 123-4567</p>
+              <p>Email: balharborgetaway@gmail.com</p>
+              <p>Phone: 516-585-8791</p>
             </div>
           </div>
         </div>
