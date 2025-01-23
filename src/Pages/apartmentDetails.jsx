@@ -131,16 +131,7 @@ const ApartmentDetails = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Back to Apartments Header for Mobile */}
-      <div className="md:hidden bg-white shadow-sm">
-        <button
-          onClick={handleBack}
-          className="w-full p-4 flex items-center justify-center text-gray-700 hover:bg-gray-50"
-        >
-          <FaArrowLeft className="mr-2" />
-          Back to Apartments
-        </button>
-      </div>
+     
 
       {/* Apartment Details Section */}
       
