@@ -7,7 +7,7 @@ const NotificationBanner = () => {
   if (!isVisible) return null;
 
   return (
-    <div className="bg-[#ff385c] p-2">
+    <div className="bg-[#ff385c] hidden md:block p-2">
       <div className="flex items-center justify-between max-w-7xl mx-auto">
         <div className="flex items-center space-x-2">
           <div className="w-5 h-5 rounded-full border border-white flex items-center justify-center">
