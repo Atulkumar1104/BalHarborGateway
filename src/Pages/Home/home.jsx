@@ -1,9 +1,11 @@
 import React from "react";
-import ApartmentListings from "../../Components/demo";
+// import ApartmentListings from "../../Components/demo";
 import AboutUs from "../../Components/aboutUs";
 import ContactSection from "../../Components/contactUs";
 import ImageCarousel from "../../Components/images";
 import NotificationBanner from "../../Components/notificationBanner";
+import ImageGallery from "../../Components/imageGallery";
+import CTASection from "../../Components/contactUs";
 
 function Home() {
   return (
@@ -66,13 +68,15 @@ function Home() {
           </p>
         </div>
 
-        <div>
+        {/* <div>
           <ApartmentListings />
-        </div>
+        </div> */}
 
         <div className="w-full max-w-full mx-auto">
           <AboutUs />
-          <ContactSection />
+
+          <ImageGallery />
+          <CTASection />
         </div>
       </div>
     </div>

@@ -361,7 +361,10 @@ const ContactPage = () => {
         {/* Image Gallery Section */}
         <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
-            Property Gallery
+            <span className="bg-clip-text text-transparent text-6xl bg-[#ff385c]">
+              Kosher
+            </span>{" "}
+            Apartment Gallery
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
             {galleryImages.map((image, index) => (

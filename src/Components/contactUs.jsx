@@ -1,231 +1,70 @@
-import React, { useState, useRef, useEffect } from "react";
-import { Upload, ChevronDown, Copy, Check } from "lucide-react";
+import React, { useState, useEffect } from "react";
 
-const officeAddresses = {
-  Poland: {
-    address: "123 Jerozolimskie avenue, Warszawa, 00-001",
-    flag: "🇵🇱",
-  },
-  Ukraine: {
-    address: "456 Khreshchatyk Street, Kyiv, 01001",
-    flag: "🇺🇦",
-  },
-  Cyprus: {
-    address: "789 Makarios Avenue, Limassol, 3042",
-    flag: "🇨🇾",
-  },
-  Estonia: {
-    address: "321 Narva Road, Tallinn, 10120",
-    flag: "🇪🇪",
-  },
-};
+const CTASection = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-const CopyableText = ({ text }) => {
-  const [copied, setCopied] = useState(false);
+  const galleryImages = [
+    "/images/1.jpg",
+    "/images/2.jpg",
+    "/images/10.jpg",
+    "/images/12.jpg",
+    "/images/13.jpg",
+    "/images/5.jpg",
+    "/images/7.jpg",
+    "/images/6.jpg",
+    "/images/9.jpg",
+    "/images/3.jpg",
+  ];
 
-  const handleCopy = async () => {
-    try {
-      await navigator.clipboard.writeText(text);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch (err) {
-      console.error("Failed to copy text:", err);
-    }
-  };
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) =>
+        prevIndex === galleryImages.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <div className="flex items-center justify-center gap-2">
-      <span className="text-gray-700">{text}</span>
-      <button
-        onClick={handleCopy}
-        className="p-1 hover:text-[#ff385c] transition-colors"
-        aria-label="Copy to clipboard"
-      >
-        {copied ? (
-          <Check className="w-4 h-4 text-[#ff385c]" />
-        ) : (
-          <Copy className="w-4 h-4 text-gray-600" />
-        )}
-      </button>
-    </div>
-  );
-};
-
-const CustomDropdown = ({ country, data }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const dropdownRef = useRef(null);
-
-  const handleMouseEnter = () => setIsOpen(true);
-  const handleMouseLeave = () => setIsOpen(false);
-
-  return (
-    <div
-      className="relative"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      ref={dropdownRef}
-    >
-      <button
-        className="flex items-center gap-1 text-gray-700 hover:text-[#ff385c] transition-colors focus:outline-none"
-        aria-expanded={isOpen}
-      >
-        <span>
-          {data.flag} {country}
-        </span>
-        <ChevronDown
-          className={`w-4 h-4 transition-transform duration-200 ${
-            isOpen ? "rotate-180" : ""
-          }`}
-        />
-      </button>
-
-      {isOpen && (
-        <div className="absolute left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 z-50">
-          <div className="p-4">
-            <h4 className="font-semibold mb-2 text-gray-900">
-              {country} Office
-            </h4>
-            <p className="text-sm text-gray-600">{data.address}</p>
-          </div>
-        </div>
-      )}
-    </div>
-  );
-};
-
-const ContactSection = () => {
-  const [formData, setFormData] = useState({
-    fullName: "",
-    email: "",
-    companyName: "",
-    phoneNumber: "",
-    aboutProject: "",
-    hasReadPrivacy: false,
-    acceptsMarketing: false,
-  });
-
-  const handleInputChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: type === "checkbox" ? checked : value,
-    }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Form submitted:", formData);
-  };
-
-  return (
-    
-      <div className="w-full p-8">
-        <div className="grid grid-cols-1 gap-12">
-          <div className="bg-gray-100 p-8 rounded-lg shadow-sm border border-gray-200 mx-auto w-full max-w-3xl">
-            <h2 className="text-gray-900 text-2xl font-bold mb-6 ">
-              Book Now
-            </h2>
-
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <input
-                    type="text"
-                    name="fullName"
-                    value={formData.fullName}
-                    onChange={handleInputChange}
-                    placeholder="Full name*"
-                    className="w-full p-3 border-b border-gray-300 rounded bg-white text-gray-900"
-                    required
-                  />
-                </div>
-                <div>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    placeholder="Email address*"
-                    className="w-full p-3 border-b border-gray-300 rounded bg-white text-gray-900"
-                    required
-                  />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <input
-                    type="text"
-                    name="companyName"
-                    value={formData.companyName}
-                    onChange={handleInputChange}
-                    placeholder="Company name"
-                    className="w-full p-3 border-b border-gray-300 rounded bg-white text-gray-900"
-                  />
-                </div>
-                <div>
-                  <input
-                    type="tel"
-                    name="phoneNumber"
-                    value={formData.phoneNumber}
-                    onChange={handleInputChange}
-                    placeholder="Phone number"
-                    className="w-full p-3 border-b border-gray-300 rounded bg-white text-gray-900"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <textarea
-                  name="aboutProject"
-                  value={formData.aboutProject}
-                  onChange={handleInputChange}
-                  placeholder="About your project*"
-                  className="w-full p-3 border border-gray-300 rounded h-32 bg-white text-gray-900"
-                  required
+    <div className="w-full bg-gray-50 py-12">
+      <div className="max-w-[1470px] mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center bg-gray-200 rounded-lg shadow-sm overflow-hidden">
+          {/* Left side - Image Carousel */}
+          <div className="relative h-80 overflow-hidden">
+            {galleryImages.map((image, index) => (
+              <div
+                key={image}
+                className={`absolute w-full h-full transition-opacity duration-1000 ${
+                  index === currentImageIndex ? "opacity-100" : "opacity-0"
+                }`}
+              >
+                <img
+                  src={image}
+                  alt={`Gallery image ${index + 1}`}
+                  className="w-full h-full object-cover"
                 />
               </div>
+            ))}
+          </div>
 
-              <div className="space-y-2">
-                <div className="flex items-start gap-2">
-                  <input
-                    type="checkbox"
-                    name="hasReadPrivacy"
-                    checked={formData.hasReadPrivacy}
-                    onChange={handleInputChange}
-                    className="mt-1"
-                    required
-                  />
-                  <span className="text-sm text-gray-600">
-                    I have read Privacy Notice*
-                  </span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <input
-                    type="checkbox"
-                    name="acceptsMarketing"
-                    checked={formData.acceptsMarketing}
-                    onChange={handleInputChange}
-                    className="mt-1"
-                  />
-                  <span className="text-sm text-gray-600">
-                    I agree to receive marketing materials
-                  </span>
-                </div>
-              </div>
+          {/* Right side - Content */}
+          <div className="p-6 -mt-10">
+            <h2 className="text-5xl max-w-7xl w-full mx-auto font-bold text-gray-900 mb-10">
+              For Booking Call Now
+            </h2>
 
-              <button
-                type="submit"
-                className="w-full bg-[#ff385c] text-white py-3 rounded transition-colors"
-              >
-                SEND MESSAGE
-              </button>
-            </form>
+            <button
+              onClick={() => (window.location.href = "tel:+1234567890")}
+              className="inline-flex items-center px-6 py-2 text-sm font-medium text-white bg-[#ff385c] rounded hover:bg-[#ff1f4a] transition-colors duration-300"
+            >
+              Call Us Now {""}(516-585-8791)
+            </button>
           </div>
         </div>
       </div>
-
+    </div>
   );
 };
 
-export default ContactSection;
+export default CTASection;

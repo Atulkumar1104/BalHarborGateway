@@ -4,7 +4,7 @@ import Home from "../Pages/Home/home";
 import ApartmentDetails from "../Pages/apartmentDetails";
 import AboutPage from "../Pages/about";
 import ContactPage from "../Pages/contact";
-import ApartmentListings from "../Components/demo";
+// import ApartmentListings from "../Components/demo";
 
 const AppRoutes = () => {
   return (
@@ -14,7 +14,8 @@ const AppRoutes = () => {
       <Route path="/apartment/:id" element={<ApartmentDetails />} />
       <Route path="/about" element={<AboutPage />} />{" "}
       <Route path="/contact" element={<ContactPage />} />{" "}
-      <Route path="/apartments" element={<ApartmentListings />} />{" "}
+      <Route path="/apartmentDetails" element={<ApartmentDetails />} />{""}
+      {/* <Route path="/apartments" element={<ApartmentListings />} />{" "} */}
       {/* Add the AboutPage route */}
     </Routes>
   );

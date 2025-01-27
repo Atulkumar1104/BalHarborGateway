@@ -49,7 +49,7 @@ const Header = () => {
   const navigationLinks = [
     { path: "/", text: "Home" },
     { path: "/contact", text: "Contact" },
-    { path: "/apartments", text: "Apartments" },
+    // { path: "/apartments", text: "Apartments" },
     { path: "/about", text: "About" },
   ];
 

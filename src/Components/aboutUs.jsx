@@ -5,11 +5,11 @@ const AboutUs = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate("/apartments");
+    navigate("/apartmentDetails");
   };
 
   return (
-    <section className="container mx-auto px-4 py-16 -mt-20 relative">
+    <section className="container mx-auto px-4 py-16  relative">
       <div className="absolute inset-0 opacity-[0.03]">
         <div
           className="w-full h-full"

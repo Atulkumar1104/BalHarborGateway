@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   FaArrowLeft,
   FaBed,
@@ -9,11 +9,10 @@ import {
   FaParking,
   FaSwimmingPool,
 } from "react-icons/fa";
-
 import { X } from "lucide-react";
+import CTASection from "../Components/contactUs";
 
 const ApartmentDetails = () => {
-  const { id } = useParams();
   const navigate = useNavigate();
   const [selectedImage, setSelectedImage] = useState(null);
 
@@ -23,21 +22,21 @@ const ApartmentDetails = () => {
   const closeModal = () => setSelectedImage(null);
 
   const galleryImages = [
-    "https://uc3c8f028386d9b1d396178a676d.previews.dropboxusercontent.com/p/thumb/ACgelWO3T18rafeMH08Nzcv2zDhkMOOZKl6LU_uoZrvAjYrTmVQfJt4Bcft1ZUcBM1YznIyHjpJEiVCy6z11uDm8G2DoHVdftGcRisfahuvNWu_fsBHairgj8GTdZ_KFYvu6P165nUE_pMzGzbFghsk414viKLJW4lDHCXzF9yZEf7qJByYCbNkD8xBDT-bZIQeavgJ1tT77NlbrIoKTVEkqJiJ86xnp-xYb1uC-RkpArPDs3JtLkesjWDLn-T5NRJsj9xbhWX0cqycHhxqM9i3hIwehEUdiHmUFOxZDwAqfA9YsAuiW1mgCX16x8NM4MfeR-4uVGJRmVIAGnr2YSCD8fTfZkbPeTLKiKuJc2LukOg/p.jpeg",
-    "https://uc89899a1ba6ca8ce649e9342711.previews.dropboxusercontent.com/p/thumb/ACgvr_4wJfoRk914Td2cmR4aJlp-KWOp6kaV4tYUJXT1Q1FVMeVow9XB-QY1XPeTP6ooI96fyYIVQoqLwMQ8UpX5xOYVAPsKyNj3XnnbyMlpwZr-2TWJVo4-DrYtF9py6LZdKtpP9_btiJVR-vWcd2weCOwBh462pBeiNLxdIeuv7Rsqq2mi-niAh6HCHIvrokbAiAL7dBr-Cx_-c71-uh2AdWYGoVmiAOzoyOdVr-CaubF1c8DQy73PXaVA43lCPH_1zJN_xErc3a9hE33PtMH8OpkakhNo69Yc7knP85L1HAdxvfrEKE-f8AWu2QRU0i1Z7-4HEPqdIsKPOlXoPrDl-gd5btD1kOtdzAW9lP0OfQ/p.jpeg",
-    "https://uc39219ba63ad22363b31e1d15ed.previews.dropboxusercontent.com/p/thumb/AChE0moHEKc3jzecy-auAVi2b8gnsfuSqte576Z-8Q7fyV8Khh9p_I6itWb1yylWvI4E8834_0pVRAZXIfa02BvngaOkuWtHqSOZfPXeAaSA9Teg8KqR-tr92kKdv1uYCqt1K4LU5agdiXdsL_Dt_9zfXUxRSMu5ru_s21M3gAvOHJNR3MDs19tUAPQLV1O4Alz3TfLpt94O0J_SPr40ToQ4KBoFlXUQODkjHHb0heZcZSMzJ0UZUcHw74CJ4bv62AwdVJQc7Wt2J9SLNoXVSEaL5OW1FDCb_IkT9Es1JVaHx9FaxGtfId9JJM1CNhsa3NyidKgaTOw3qcrPaSq7FahhbpPxTCGCQLVvbWY44zp-yQ/p.jpeg",
-    "https://uc5ee2d63b2b960fdbe04ee69203.previews.dropboxusercontent.com/p/thumb/ACgNZ5RaAjAM76knNNOxzF-E92bioD1gEynOOI95O75VpmbCauDzMqprL8sk_uU8rAF7D9Zukj8INW_APdhqW2bCv8BUVFcNS3mIFVNuTFGYyoPbmqi91SuzXXAE8t5reB2r5MgSnIfnnWuOZ4kTSgflD5tcE1T2G4lxjN5SdNNhFdfF6R_H0bKgIVi1RNQlUZaRxZbNkwVQkBtKvpg0ND0HewT-_-FAG-5SsSnpKNlC3YLH0qkWcc6mK0NGhzcUZSW9B_axBFpQen1Hmyw7Lb7wlpbM67b7h7vAwoqFf_WekAFKPq8yuX_Ji-rH3xL1tPzaCLZydiJclwZBnN1AQaGmSfQSSFvqWz4jbRkTejCGLw/p.jpeg",
-    "https://ucd072596514c59c736fa15c08da.previews.dropboxusercontent.com/p/thumb/AChyqVJHq6HFUPrXxFsuJA9eqrTuq6nH3sG03PdOjPcZkT-s33ttzFbwOs1wsBYf8aajt1mIwvGZkyLL55EXClLWMj0ruM0Fb0XHpNQGHtp40B1YiZTFj1F3ovqCkTbaGv-2vb0qk978MR92BzG-YdyjBW9K4_IXS2_gxGGnUv6MQBSTUxlgq3VvvK-CCCySXC5mZo3ovuHV-KID_uUoYOj-qFgTj_W-dRFQUCO_W1JqNvpVkSoybeyW4iM-tzMO6JmP7dUCyi03JK-q3jXzLVJAD_EUsZ3YN9SErFHSugunwERUufZ_KqhabI5OuyDx9OoVPgMeyGnKaY8IQrQFqT-bEVe-rDeBg6Hz74UiOvBuEw/p.jpeg",
-    "https://ucfb76479a56bf84435a15717eb3.previews.dropboxusercontent.com/p/thumb/ACh2WpHdEojS9KdgoHbvbD0U4BzrAyfkYrssHWQtt6OmrcqZrB8OCBiuC1cbSxbTYJttuDac5Q8AX0fkuzv5iF-7Xk4BpZkAhUPSrVo1T68mQk5PUUQ1c62oXQenC7xtml4idw888qw0w3E17f8OSq2Km4xuTrTpdTEmReyXLapxNYJ3GPc-02TNZH7NVnU83F4aaBaTbkhN-izA7fLJqQlsejdkFfaYHneRkw0nJ2jdhjx6hHQx73zv1L3nolAV9VHd9tsgiduKNoJFVaXy7q_S1MR78AI76WKUMJ1mTljJWlHN1cnxNojDGenVhRmVO3Lrj3ZhrRb1jjFk_A8nO0VUlGTXGr_gfoe59qnORlhUZg/p.jpeg",
-    "https://ucfb76479a56bf84435a15717eb3.previews.dropboxusercontent.com/p/thumb/ACh2WpHdEojS9KdgoHbvbD0U4BzrAyfkYrssHWQtt6OmrcqZrB8OCBiuC1cbSxbTYJttuDac5Q8AX0fkuzv5iF-7Xk4BpZkAhUPSrVo1T68mQk5PUUQ1c62oXQenC7xtml4idw888qw0w3E17f8OSq2Km4xuTrTpdTEmReyXLapxNYJ3GPc-02TNZH7NVnU83F4aaBaTbkhN-izA7fLJqQlsejdkFfaYHneRkw0nJ2jdhjx6hHQx73zv1L3nolAV9VHd9tsgiduKNoJFVaXy7q_S1MR78AI76WKUMJ1mTljJWlHN1cnxNojDGenVhRmVO3Lrj3ZhrRb1jjFk_A8nO0VUlGTXGr_gfoe59qnORlhUZg/p.jpeg",
-    "https://uc0d160c340863d07b4acf3bc192.previews.dropboxusercontent.com/p/thumb/ACji3TMVM-HTDEsr2wf-_elgzeiZMSRakeCFvrRad14ZahJuH-PszE1yOjZXayJZl-YAdIXBNNLpBxrjtt7KQVLIXhMvwKSXhmfpAnqlG_ildsakSDDWXfivgeNEPkpMiaj9O2ZSGA679C93nHu3lKfs5q5upAoVWgxKMjKNPFhxiJXzYIspRZqvd8tcqoptv5A2NqcFLIECqtNpW_uH4uDOPOTS0RJwcGi1VS0FKGmmuf_pyvwH3-f9SqOcS1J41gezK6LRDgFNewG7NhvgSRH4N-0BhJ_Uu1_q6WY5bTjFyn59PNwdooBnOzk8BrLDmaH6Y0G9SqBmGG5wjJ_JllKgVp2K44Kf0eJhvGDcBm2ioQ/p.jpeg",
-    "https://uca731f7c64c7a531de8b601905d.previews.dropboxusercontent.com/p/thumb/ACjVxJjpM-5ZF0DjjRuleKIvEQYVPZ3-JJok_7dFRMHAVo0gj0aJT8WokCy3Hol34u-jYQC1Wctk-X0Fhw_ts9Nbo6nzHSgO2apkReDgh93LNEzaHAGHSySIZikGWK7BNFWHV0e_5D5hglSJuwUmqT9HFI1Rh4Y2xE9a4BUxtdRT0bQrIxQpDiDQ2EvLA06K4Dps4QR5Tg7XhOjzJOwGJMMO7s6NL3riClKEcjsePsb5jfdYQKIju85lHl5mqwXbHQ8rkcUFkEG20XBEfWuWoBbN3Ek7C41T9nuCRkKGuRTGTJhSQD_VcXLQUkZA9ex-CrouUBDg0kW_8DxBjMIkAEZjcxLR4f3FkXPXBPV6lVInxw/p.jpeg",
-    "https://uc6f4313cda285db3514e7de7c76.previews.dropboxusercontent.com/p/thumb/AChm6_SK3gzHbOWdTa1T9d4moqD3EULYDJjocrDMT__--2Rd0D2uB-hGphk5s5zpVwql-l-MkH4M5KkmXtmSMpzsfo9nYBQCDECsAF7WoiYS0zdSitxptqHRr_EFvzFYgiaZ2ssRM_avw8LcwKuMO80rirhZYG2tpupuopPlS_uQS1SXcIeuQek7ExxX_Y_yyCN-iRmS6Tu9K0vWwH4iqL4VGfjAk591o8oRsUX1I4NKm9M-0sytXd3kN93DGOYjTu-fy5hgndkedVhVBnY1DemCPrU2vHoSDG8oJzJJfUlWlB2Y_8CHy7jGUP6qE9b4i_N2nIvhp_541TER546JKefXAIiYFC3RYDNwFLICCcN8aA/p.jpeg",
+    "/images/1.jpg",
+    "/images/2.jpg",
+    "/images/10.jpg",
+    "/images/12.jpg",
+    "/images/13.jpg",
+    "/images/5.jpg",
+    "/images/7.jpg",
+    "/images/6.jpg",
+    "/images/9.jpg",
+    "/images/3.jpg",
   ];
+
   const apartments = [
     {
-      id: 0,
-      title: "Unit 18",
+      // title: "Unit 18",
       description:
         "Modern 2-bedroom apartment with stunning lake views, fully furnished kitchen, and private balcony.",
       img: "/images/1.jpg",
@@ -47,81 +46,13 @@ const ApartmentDetails = () => {
       area: "1,200 sq ft",
       amenities: ["WiFi", "Parking", "Pool", "Gym"],
       fullDescription:
-        "Stress our availability for Passover , Shavuot and, of course, the harsh winter  months of January, February and march. We Need to stress that we offer excellent totally kosher (for both peach and the entire year) complete apartments, pool all day, 4 short blocks from an excellent meaty and milky restaurant , all at an unbeatable price! 6 blocks from the beach!",
+        "Stress our availability for Passover, Shavuot, and the harsh winter months of January, February, and March. We offer excellent totally kosher (for both Pesach and the entire year) complete apartments, pool all day, 4 short blocks from an excellent meaty and milky restaurant, all at an unbeatable price! 6 blocks from the beach!",
       location: "123 Lakefront Drive",
       availableFrom: "Immediate",
     },
-    {
-      id: 1,
-      title: "Unit 18",
-      description:
-        "Efficient studio apartment in the heart of downtown. Perfect for young professionals.",
-      img: "/images/2.jpg",
-      price: "$200/Night",
-      bedrooms: 1,
-      bathrooms: 1,
-      area: "500 sq ft",
-      amenities: ["WiFi", "Parking", "Laundry", "Security"],
-      fullDescription:
-        "Stress our availability for Passover , Shavuot and, of course, the harsh winter months of January, February and march. We Need to stress that we offer excellent totally kosher (for both peach and the entire year) complete apartments, pool all day, 4 short blocks from an excellent meaty and milky restaurant , all at an unbeatable price! 6 blocks from the beach!",
-      location: "456 Main Street",
-      availableFrom: "Next Month",
-    },
-    {
-      id: 2,
-      title: "Unit 18",
-      description:
-        "Spacious 3-bedroom apartment with private garden and modern amenities.",
-      img: "/images/3.jpg",
-      price: "$200/Night",
-      bedrooms: 3,
-      bathrooms: 2.5,
-      area: "1,800 sq ft",
-      amenities: ["WiFi", "Parking", "Garden", "Playground"],
-      fullDescription:
-        "Stress our availability for Passover , Shavuot and, of course, the harsh winter months of January, February and march. We Need to stress that we offer excellent totally kosher (for both peach and the entire year) complete apartments, pool all day, 4 short blocks from an excellent meaty and milky restaurant , all at an unbeatable price! 6 blocks from the beach!",
-      location: "789 Garden Avenue",
-      availableFrom: "Next Week",
-    },
-    {
-      id: 3,
-      title: "Unit 18",
-      description:
-        "Contemporary 1-bedroom loft with high ceilings and industrial design elements.",
-      img: "/images/4.jpg",
-      price: "$200/Night",
-      bedrooms: 1,
-      bathrooms: 1,
-      area: "850 sq ft",
-      amenities: ["WiFi", "Parking", "Elevator", "Roof Deck"],
-      fullDescription:
-        "Stress our availability for Passover , Shavuot and, of course, the harsh winter months of January, February and march. We Need to stress that we offer excellent totally kosher (for both peach and the entire year) complete apartments, pool all day, 4 short blocks from an excellent meaty and milky restaurant , all at an unbeatable price! 6 blocks from the beach!",
-      location: "101 Warehouse District",
-      availableFrom: "Two Weeks",
-    },
-    {
-      id: 4,
-      title: "Unit 18",
-      description:
-        "Luxurious 3-bedroom penthouse with panoramic city views and private terrace.",
-      img: "/images/5.jpg",
-      price: "$200/Night",
-      bedrooms: 3,
-      bathrooms: 3.5,
-      area: "2,500 sq ft",
-      amenities: ["WiFi", "Parking", "Pool", "Concierge", "Gym"],
-      fullDescription:
-        "Stress our availability for Passover , Shavuot and, of course, the harsh winter months of January, February and march. We Need to stress that we offer excellent totally kosher (for both peach and the entire year) complete apartments, pool all day, 4 short blocks from an excellent meaty and milky restaurant , all at an unbeatable price! 6 blocks from the beach!",
-      location: "1000 Skyline Boulevard",
-      availableFrom: "Next Month",
-    },
   ];
 
-  const apartment = apartments.find((apt) => apt.id === parseInt(id));
-
-  if (!apartment) {
-    return <div className="text-center p-4 md:p-8">Apartment not found</div>;
-  }
+  const apartment = apartments[0]; // Directly use the first apartment
 
   // Extract numeric price value and calculate tax
   const basePrice = parseInt(apartment.price.replace(/[^0-9]/g, ""));
@@ -131,24 +62,14 @@ const ApartmentDetails = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-     
-
       {/* Apartment Details Section */}
-      
-      <div className="p-4  md:p-8">
+      <div className="p-4 md:p-8">
         <div className="max-w-6xl mx-auto">
-          <button
-            onClick={() => navigate(-1)}
-            className="mb-4 md:mb-6 flex items-center mt-3 gap-2 text-gray-600 hover:text-gray-900"
-          >
-            <FaArrowLeft /> Back to listings
-          </button>
-
-          <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+          <div className="bg-white rounded-xl shadow-lg overflow-hidden mt-5">
             <div className="h-[300px] md:h-[500px] w-full">
               <img
                 src={apartment.img}
-                alt={apartment.title}
+                // alt={apartment.title}
                 className="w-full h-full object-cover"
               />
             </div>
@@ -159,7 +80,7 @@ const ApartmentDetails = () => {
                   <h1 className="text-2xl md:text-4xl font-bold text-gray-900 mb-2">
                     {apartment.title}
                   </h1>
-                  <p className="text-lg md:text-xl text-gray-600">
+                  <p className="text-lg md:text-xl font-bold mt-5 text-gray-600">
                     {apartment.location}
                   </p>
                 </div>
@@ -257,10 +178,14 @@ const ApartmentDetails = () => {
           </div>
         </div>
       </div>
+
       {/* Image Gallery Section */}
       <div className="max-w-[1410px] mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
-          Property Gallery
+          <span className="bg-clip-text text-transparent text-6xl bg-[#ff385c]">
+            Kosher
+          </span>{" "}
+          Apartment Gallery
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
           {galleryImages.map((image, index) => (
@@ -518,6 +443,7 @@ const ApartmentDetails = () => {
           </div>
         </div>
       </div>
+      <CTASection />
     </div>
   );
 };

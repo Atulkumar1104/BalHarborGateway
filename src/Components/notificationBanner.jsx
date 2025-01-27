@@ -8,14 +8,14 @@ const NotificationBanner = () => {
 
   return (
     <div className="bg-[#ff385c] hidden md:block p-2">
-      <div className="flex items-center justify-between max-w-7xl mx-auto">
+      <div className="flex items-center justify-between ml-8 max-w-full mx-auto">
         <div className="flex items-center space-x-2">
           <div className="w-5 h-5 rounded-full border border-white flex items-center justify-center">
             <div className="w-3 h-3 border-2 border-white rounded-full" />
           </div>
           <span className="text-lg font-bold text-white">
             New apartments just listed in your area!{" "}
-            <a href="/apartments" className="underline">
+            <a href="/apartmentDetails" className="underline">
               View listings
             </a>
           </span>
