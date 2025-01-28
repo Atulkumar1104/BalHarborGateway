@@ -29,11 +29,11 @@ const NotificationBanner = () => {
             Book Now (516-585-8791)
           </a>
           <a
-            href="mailto:balharborgetaway@gmail.com"
+            href="/contact"
             className="flex items-center px-4 py-2 font-bold bg-white text-blue-500 rounded hover:bg-blue-50"
           >
-            <Mail className="w-4 h-4 mr-2" />
-            Email Us
+            
+            Make a Reservation
           </a>
           <button
             onClick={() => setIsVisible(false)}

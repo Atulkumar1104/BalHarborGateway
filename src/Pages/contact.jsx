@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { MapPin, Phone, Mail, Clock, X } from "lucide-react";
 import emailjs from "@emailjs/browser";
+import GoogleMapsLink from "../Components/googlemaps";
+import MapboxPreview from "../Components/googlemaps";
 
 const ContactPage = () => {
   useEffect(() => {
@@ -157,10 +159,10 @@ const ContactPage = () => {
                     <div>
                       <h3 className="font-semibold">Visit Us</h3>
                       <p className="text-gray-600 text-sm sm:text-base">
-                        123 Luxury Avenue, Suite 456
+                        10000 E Bay Harbor Dr #7,
                       </p>
                       <p className="text-gray-600 text-sm sm:text-base">
-                        New York, NY 10001
+                        Miami Beach, FL 33154 2
                       </p>
                     </div>
                   </div>
@@ -318,122 +320,62 @@ const ContactPage = () => {
               </form>
             </div>
           </div>
+          <div>
+            <MapboxPreview />
+          </div>
+          {/* Image Gallery Section */}
+          <div className="w-full mt-16">
+            <div className="container mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
+                <span className="bg-clip-text text-transparent text-6xl bg-[#ff385c]">
+                  Kosher
+                </span>{" "}
+                Apartment Gallery
+              </h2>
 
-          {/* Map Section */}
-          <div className="mt-8 sm:mt-12 lg:mt-16">
-            <div className="bg-white rounded-lg shadow-lg p-2 sm:p-4">
-              <div className="h-64 sm:h-80 lg:h-96 bg-gray-100 rounded-lg relative overflow-hidden">
-                <svg
-                  viewBox="0 0 800 400"
-                  className="w-full h-full"
-                  style={{
-                    background: "#f3f4f6",
-                  }}
-                >
-                  <rect x="0" y="0" width="800" height="400" fill="#f3f4f6" />
-                  <line
-                    x1="100"
-                    y1="200"
-                    x2="700"
-                    y2="200"
-                    stroke="#cbd5e1"
-                    strokeWidth="20"
-                  />
-                  <line
-                    x1="400"
-                    y1="50"
-                    x2="400"
-                    y2="350"
-                    stroke="#cbd5e1"
-                    strokeWidth="20"
-                  />
-                  <circle cx="400" cy="200" r="8" fill="#ef4444" />
-                  <path
-                    d="M400 180 L420 220 L400 210 L380 220 Z"
-                    fill="#ef4444"
-                  />
-                  <rect
-                    x="360"
-                    y="150"
-                    width="80"
-                    height="20"
-                    rx="10"
-                    fill="#1e40af"
-                  />
-                  <text
-                    x="400"
-                    y="164"
-                    textAnchor="middle"
-                    fill="white"
-                    fontSize="12"
+              <div className="grid grid-cols-2 md:grid-cols-5 gap-4 w-full">
+                {galleryImages.map((image, index) => (
+                  <div
+                    key={index}
+                    className="relative group overflow-hidden rounded-lg cursor-pointer w-full"
+                    onClick={() => setSelectedImage(image)}
                   >
-                    Our Office
-                  </text>
-                </svg>
-
-                <div className="absolute bottom-4 left-4 bg-white p-2 rounded-lg shadow-md">
-                  <div className="flex items-center space-x-2">
-                    <div className="w-3 h-3 sm:w-4 sm:h-4 bg-red-500 rounded-full" />
-                    <span className="text-xs sm:text-sm text-gray-600">
-                      123 Luxury Avenue
-                    </span>
+                    <img
+                      src={image}
+                      alt={`Gallery ${index + 1}`}
+                      className="w-full h-72 object-cover transition-transform duration-300 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-opacity duration-300" />
                   </div>
+                ))}
+              </div>
+            </div>
+
+            {selectedImage && (
+              <div
+                className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"
+                onClick={() => setSelectedImage(null)}
+              >
+                <div
+                  className="relative w-full max-w-7xl"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <button
+                    onClick={() => setSelectedImage(null)}
+                    className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors"
+                  >
+                    <X size={24} />
+                  </button>
+                  <img
+                    src={selectedImage}
+                    alt="Full size"
+                    className="max-h-[90vh] w-full object-contain"
+                  />
                 </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
-
-        {/* Image Gallery Section */}
-        <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
-            <span className="bg-clip-text text-transparent text-6xl bg-[#ff385c]">
-              Kosher
-            </span>{" "}
-            Apartment Gallery
-          </h2>
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-            {galleryImages.map((image, index) => (
-              <div
-                key={index}
-                className="relative group overflow-hidden rounded-lg cursor-pointer"
-                onClick={() => setSelectedImage(image)}
-              >
-                <img
-                  src={image}
-                  alt={`Gallery ${index + 1}`}
-                  className="w-full h-72 object-cover transition-transform duration-300 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-opacity duration-300" />
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Modal */}
-        {selectedImage && (
-          <div
-            className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"
-            onClick={closeModal}
-          >
-            <div
-              className="relative max-w-7xl w-full"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <button
-                onClick={closeModal}
-                className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors"
-              >
-                <X size={24} />
-              </button>
-              <img
-                src={selectedImage}
-                alt="Full size"
-                className="max-h-[90vh] mx-auto object-contain"
-              />
-            </div>
-          </div>
-        )}
       </div>
     </>
   );

@@ -15,6 +15,57 @@ import CTASection from "../Components/contactUs";
 const ApartmentDetails = () => {
   const navigate = useNavigate();
   const [selectedImage, setSelectedImage] = useState(null);
+   const [submitStatus, setSubmitStatus] = useState({ type: "", message: "" });
+   const [formData, setFormData] = useState({
+     checkIn: "",
+     checkOut: "",
+     bedrooms: "1",
+     name: "",
+     email: "",
+     phone: "",
+   });
+  
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      await emailjs.send("service_mm5f34b", "template_p2js8ug", {
+        to_email: "atulkumar83013@gmail.com",
+        from_name: formData.name,
+        from_email: formData.email,
+        phone: formData.phone,
+        check_in: formData.checkIn,
+        check_out: formData.checkOut,
+        bedrooms: formData.bedrooms,
+      });
+
+      setSubmitStatus({
+        type: "success",
+        message: "Reservation request sent successfully!",
+      });
+      setFormData({
+        checkIn: "",
+        checkOut: "",
+        bedrooms: "1",
+        name: "",
+        email: "",
+        phone: "",
+      });
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      setSubmitStatus({
+        type: "error",
+        message: "Failed to send reservation request. Please try again.",
+      });
+    }
+  };
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const handleBack = () => {
     navigate("/");
@@ -405,44 +456,111 @@ const ApartmentDetails = () => {
 
           {/* Right Side - Contact Form */}
           <div className="w-full lg:w-80 flex-shrink-0">
-            <div className="bg-gray-900 rounded-lg p-4 md:p-6 text-white lg:sticky lg:top-24">
-              <h2 className="text-lg md:text-xl font-bold mb-4">Book Now</h2>
-              <form className="space-y-4">
-                <input
-                  type="text"
-                  placeholder="Full Name"
-                  className="w-full bg-transparent border border-gray-600 rounded p-2 text-sm"
-                />
-                <input
-                  type="email"
-                  placeholder="Email Address"
-                  className="w-full bg-transparent border border-gray-600 rounded p-2 text-sm"
-                />
-                <input
-                  type="tel"
-                  placeholder="Phone Number"
-                  className="w-full bg-transparent border border-gray-600 rounded p-2 text-sm"
-                />
-                <textarea
-                  placeholder="Your Message"
-                  rows="4"
-                  className="w-full bg-transparent border border-gray-600 rounded p-2 text-sm"
-                ></textarea>
-                <button className="w-full bg-[#ff385c] text-white px-4 py-2 rounded text-sm hover:bg-[#e31c5f] transition-colors">
-                  Book Now
-                </button>
-              </form>
-              {/* <div className="mt-4 text-sm text-gray-400">
-                <p>Base Rent: {apartment.price}</p>
-                <p>Florida Sales Tax (13%): ${taxAmount.toFixed(2)}</p>
-                <p className="font-semibold">
-                  Total Monthly: ${totalPrice.toFixed(2)}
-                </p>
-              </div> */}
+      <div className="bg-gray-900 rounded-lg p-4 md:p-6 text-white lg:sticky lg:top-24">
+        <h2 className="text-lg md:text-xl font-bold mb-4">Make Your Reservation</h2>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label className="block text-sm font-medium mb-1">Check-in Date</label>
+            <input
+              type="date"
+              name="checkIn"
+              value={formData.checkIn}
+              onChange={handleChange}
+              required
+              className="w-full bg-transparent border border-gray-600 rounded p-2 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium mb-1">Check-out Date</label>
+            <input
+              type="date"
+              name="checkOut"
+              value={formData.checkOut}
+              onChange={handleChange}
+              required
+              className="w-full bg-transparent border border-gray-600 rounded p-2 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium mb-1">Number of Bedrooms</label>
+            <select
+              name="bedrooms"
+              value={formData.bedrooms}
+              onChange={handleChange}
+              required
+              className="w-full bg-gray-800 border border-gray-600 rounded p-2 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-white [&>option]:bg-gray-800 [&>option]:text-white"
+            >
+              {[1, 2, 3, 4, 5].map((num) => (
+                <option key={num} value={num} className="bg-gray-800 text-white">
+                  {num} {num === 1 ? "Bedroom" : "Bedrooms"}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium mb-1">Full Name</label>
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              placeholder="John Doe"
+              required
+              className="w-full bg-transparent border border-gray-600 rounded p-2 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium mb-1">Email Address</label>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="john@example.com"
+              required
+              className="w-full bg-transparent border border-gray-600 rounded p-2 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium mb-1">Phone Number</label>
+            <input
+              type="tel"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              placeholder="+1 (555) 123-4567"
+              className="w-full bg-transparent border border-gray-600 rounded p-2 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            />
+          </div>
+
+          {submitStatus.message && (
+            <div
+              className={`p-4 rounded ${
+                submitStatus.type === "success"
+                  ? "bg-green-800 text-green-100"
+                  : "bg-red-800 text-red-100"
+              }`}
+            >
+              {submitStatus.message}
             </div>
+          )}
+
+          <button
+            type="submit"
+            className="w-full bg-[#ff385c] text-white px-4 py-2 rounded text-sm hover:bg-[#e31c5f] transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+          >
+            Submit Reservation
+          </button>
+        </form>
+      </div>
+          </div>
           </div>
         </div>
-      </div>
       <CTASection />
     </div>
   );

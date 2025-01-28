@@ -134,7 +134,7 @@ const AboutUs = () => {
      </div>
 
      {/* Company Stats */}
-     <div className="bg-gray-50 -mt-16 py-8">
+     {/* <div className="bg-gray-50 -mt-16 py-8">
        <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
          <div className="text-center bg-[#ff385c] rounded-lg p-8 transform hover:scale-105 transition-transform duration-300">
            <h3 className="text-4xl font-bold text-white mb-2">10+</h3>
@@ -152,9 +152,9 @@ const AboutUs = () => {
            <h3 className="text-4xl font-bold text-white mb-2">24/7</h3>
            <p className="text-white">Support & Maintenance</p>
          </div>
-       </div>
+       </div> */}
      </div>
-   </div>
+  //  </div>
  );
 };
 
