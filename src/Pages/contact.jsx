@@ -8,11 +8,12 @@ const ContactPage = () => {
   }, []);
 
   const [formData, setFormData] = useState({
+    checkIn: "",
+    checkOut: "",
+    bedrooms: "1",
     name: "",
     email: "",
     phone: "",
-    message: "",
-    propertyInterest: "",
   });
 
   const [selectedImage, setSelectedImage] = useState(null);
@@ -27,29 +28,32 @@ const ContactPage = () => {
         from_name: formData.name,
         from_email: formData.email,
         phone: formData.phone,
-        property_interest: formData.propertyInterest,
-        message: formData.message,
+        check_in: formData.checkIn,
+        check_out: formData.checkOut,
+        bedrooms: formData.bedrooms,
       });
 
       setSubmitStatus({
         type: "success",
-        message: "Message sent successfully!",
+        message: "Reservation request sent successfully!",
       });
       setFormData({
+        checkIn: "",
+        checkOut: "",
+        bedrooms: "1",
         name: "",
         email: "",
         phone: "",
-        message: "",
-        propertyInterest: "",
       });
     } catch (error) {
       console.error("EmailJS Error:", error);
       setSubmitStatus({
         type: "error",
-        message: "Failed to send message. Please try again.",
+        message: "Failed to send reservation request. Please try again.",
       });
     }
   };
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -75,6 +79,7 @@ const ContactPage = () => {
     "/images/9.jpg",
     "/images/3.jpg",
   ];
+
   return (
     <>
       {/* Animated background pattern */}
@@ -107,9 +112,10 @@ const ContactPage = () => {
           }
         `}
       </style>
+
       <div className="min-h-screen bg-white bg-opacity-90">
-        {/* Hero Section - Responsive height */}
-        <div className="relative h-64 sm:h-80 md:h-96 overflow-hidden">
+        {/* Hero Section */}
+        <div className="relative h-64 -mt-16 sm:-mt-0 sm:h-80 md:h-96 overflow-hidden">
           <img
             src="/images/12.jpg"
             alt="Luxury Property"
@@ -118,16 +124,16 @@ const ContactPage = () => {
           <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center px-4">
             <div className="text-center text-white">
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-4">
-                Get in Touch
+                Make a Reservation
               </h1>
               <p className="text-base sm:text-lg md:text-xl">
-                Discover Your Dream Property Today
+                Book Your Dream Stay Today
               </p>
             </div>
           </div>
         </div>
 
-        {/* Main Content - Responsive padding and spacing */}
+        {/* Main Content */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
             {/* Contact Information */}
@@ -137,14 +143,12 @@ const ContactPage = () => {
                   Contact Information
                 </h2>
                 <p className="text-gray-600 mb-6 sm:mb-8 text-sm sm:text-base">
-                  Our team of expert real estate professionals is here to assist
-                  you in finding your perfect property. Reach out to us through
-                  any of the following channels.
+                  Our team is here to assist you in booking your perfect stay.
+                  Reach out to us through any of the following channels.
                 </p>
               </div>
 
-              <div className="grid gap-4  sm:gap-6">
-                {/* Contact Cards - Responsive padding and flex layout */}
+              <div className="grid gap-4 sm:gap-6">
                 <div className="bg-white rounded-lg shadow-lg p-4 sm:p-6 transform transition-transform duration-300 hover:scale-105">
                   <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-3 sm:space-y-0 sm:space-x-4">
                     <div className="p-3 bg-blue-100 rounded-full">
@@ -195,12 +199,60 @@ const ContactPage = () => {
               </div>
             </div>
 
-            {/* Contact Form - Responsive padding and input sizes */}
+            {/* Reservation Form */}
             <div className="bg-white rounded-lg shadow-xl p-4 sm:p-6 lg:p-8">
               <h2 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6">
-                Send Us a Message
+                Make Your Reservation
               </h2>
               <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1 sm:mb-2">
+                      Check-in Date
+                    </label>
+                    <input
+                      type="date"
+                      name="checkIn"
+                      value={formData.checkIn}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-3 sm:px-4 py-2 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors duration-200"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1 sm:mb-2">
+                      Check-out Date
+                    </label>
+                    <input
+                      type="date"
+                      name="checkOut"
+                      value={formData.checkOut}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-3 sm:px-4 py-2 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors duration-200"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1 sm:mb-2">
+                    Number of Bedrooms
+                  </label>
+                  <select
+                    name="bedrooms"
+                    value={formData.bedrooms}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-3 sm:px-4 py-2 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors duration-200"
+                  >
+                    {[1, 2, 3, 4, 5].map((num) => (
+                      <option key={num} value={num}>
+                        {num} {num === 1 ? "Bedroom" : "Bedrooms"}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1 sm:mb-2">
                     Full Name
@@ -245,34 +297,6 @@ const ContactPage = () => {
                   />
                 </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1 sm:mb-2">
-                    Property Interest
-                  </label>
-                  <input
-                    type="text"
-                    name="propertyInterest"
-                    value={formData.propertyInterest}
-                    onChange={handleChange}
-                    placeholder="e.g., 2BR Apartment, Luxury Penthouse"
-                    className="w-full px-3 sm:px-4 py-2 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors duration-200"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1 sm:mb-2">
-                    Message
-                  </label>
-                  <textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder="Tell us more about what you're looking for..."
-                    rows={4}
-                    required
-                    className="w-full px-3 sm:px-4 py-2 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors duration-200 resize-none"
-                  />
-                </div>
                 {submitStatus.message && (
                   <div
                     className={`p-4 rounded-lg ${
@@ -284,17 +308,18 @@ const ContactPage = () => {
                     {submitStatus.message}
                   </div>
                 )}
+
                 <button
                   type="submit"
                   className="w-full bg-[#ff385c] text-white py-2 sm:py-3 px-4 sm:px-6 rounded-lg text-sm sm:text-base transform transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                 >
-                  Send Message
+                  Submit Reservation
                 </button>
               </form>
             </div>
           </div>
 
-          {/* Map Section - Responsive height and padding */}
+          {/* Map Section */}
           <div className="mt-8 sm:mt-12 lg:mt-16">
             <div className="bg-white rounded-lg shadow-lg p-2 sm:p-4">
               <div className="h-64 sm:h-80 lg:h-96 bg-gray-100 rounded-lg relative overflow-hidden">
@@ -358,6 +383,7 @@ const ContactPage = () => {
             </div>
           </div>
         </div>
+
         {/* Image Gallery Section */}
         <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">

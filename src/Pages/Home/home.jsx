@@ -6,6 +6,7 @@ import ImageCarousel from "../../Components/images";
 import NotificationBanner from "../../Components/notificationBanner";
 import ImageGallery from "../../Components/imageGallery";
 import CTASection from "../../Components/contactUs";
+import LocationFeatures from "../../Components/features";
 
 function Home() {
   return (
@@ -42,7 +43,7 @@ function Home() {
       </style>
 
       {/* Main content */}
-      <div className="min-h-screen flex flex-col items-center justify-center w-full relative">
+      <div className="min-h-screen -mt-12 sm:-mt-0 flex flex-col items-center justify-center w-full relative">
         <div className="text-center p-4 md:p-6 w-full max-w-full mx-auto">
           <div className="mb-4 md:mb-8">
             <ImageCarousel />
@@ -57,16 +58,19 @@ function Home() {
           </h1>
 
           <p className="text-base md:text-lg text-gray-600 -mb-4 md:-mb-8 max-w-6xl mx-auto px-4 md:px-0">
-            Apartments offer a modern and convenient living solution, often
-            located in urban centers with easy access to essential amenities.
-            They provide a range of options, from studio flats to luxurious
-            penthouses, catering to various lifestyles and budgets. With
-            features like security, maintenance services, and shared facilities
-            like gyms or swimming pools, apartments ensure a comfortable
-            lifestyle. Additionally, they promote community living while still
-            allowing for individual privacy and space.
+            The apartment complex is ideally located in a vibrant and diverse
+            neighborhood, offering convenient access to various local amenities.
+            Situated just a short stroll away from four{" "}
+            <span className="font-bold">Prominent Synagogues</span> , it’s
+            perfect for those seeking proximity to religious centers.
+            <br /> Additionally, the complex is only <span className=" font-bold"> Four Short Blocks</span> from a
+            popular <span className="font-bold">Dairy Restaurant</span> , ideal for kosher meals, as well as a
+            renowned <span className=" font-bold">Meaty Eatery</span> , offering a range of delicious meat-based
+            dishes.
           </p>
         </div>
+
+        <div><LocationFeatures/></div>
 
         {/* <div>
           <ApartmentListings />

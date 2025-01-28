@@ -84,7 +84,7 @@ const ApartmentDetails = () => {
                     {apartment.location}
                   </p>
                 </div>
-                <div className="flex flex-col items-end">
+                {/* <div className="flex flex-col items-end">
                   <div className="text-2xl md:text-3xl font-bold text-[#ff385c]">
                     {apartment.price}
                   </div>
@@ -94,7 +94,7 @@ const ApartmentDetails = () => {
                   <div className="text-lg font-semibold text-gray-800 mt-1">
                     Total: ${totalPrice.toFixed(2)}/Night
                   </div>
-                </div>
+                </div> */}
               </div>
 
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-8">
@@ -432,13 +432,13 @@ const ApartmentDetails = () => {
                   Book Now
                 </button>
               </form>
-              <div className="mt-4 text-sm text-gray-400">
+              {/* <div className="mt-4 text-sm text-gray-400">
                 <p>Base Rent: {apartment.price}</p>
                 <p>Florida Sales Tax (13%): ${taxAmount.toFixed(2)}</p>
                 <p className="font-semibold">
                   Total Monthly: ${totalPrice.toFixed(2)}
                 </p>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

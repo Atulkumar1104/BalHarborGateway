@@ -35,7 +35,7 @@ const AboutUs = () => {
      </style>
 
      {/* Hero Section */}
-     <div className="relative h-screen mb-20">
+     <div className="relative h-screen -mt-6 sm:-mt-0 mb-20">
        <img
          src="images/6.jpg"
          alt="Luxury Apartment Exterior"
