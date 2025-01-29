@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 
 export const ImageCarousel = () => {
-    const images = ["/images/7.jpg", "/images/8.jpg",
+  const images = [
+    "/images/7.jpg",
+    "/images/8.jpg",
     "/images/9.jpg",
-        "/images/10.jpg",
-    "/images/11.jpg",];
+    "/images/10.jpg",
+    "/images/11.jpg",
+  ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -35,15 +38,20 @@ export const ImageCarousel = () => {
         </div>
       ))}
 
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-4">
         {images.map((_, index) => (
           <button
             key={index}
-            className={`w-2 h-2 rounded-full transition-colors duration-300 ${
-              index === currentIndex ? "bg-white" : "bg-gray-400"
-            }`}
+            aria-label={`Go to slide ${index + 1}`}
+            className={`w-6 h-6 p-4 flex items-center justify-center relative touch-manipulation`}
             onClick={() => setCurrentIndex(index)}
-          />
+          >
+            <span
+              className={`absolute inset-0 m-auto w-3 h-3 rounded-full transition-colors duration-300 ${
+                index === currentIndex ? "bg-white" : "bg-gray-400"
+              }`}
+            />
+          </button>
         ))}
       </div>
     </div>
