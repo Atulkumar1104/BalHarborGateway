@@ -1,14 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { MapPin, Phone, Mail, Clock, X } from "lucide-react";
-import emailjs from "@emailjs/browser";
-import GoogleMapsLink from "../Components/googlemaps";
+import React, { useState } from "react";
+import { MapPin, Phone, Mail, X } from "lucide-react";
 import MapboxPreview from "../Components/googlemaps";
 
 const ContactPage = () => {
-  useEffect(() => {
-    emailjs.init("YQGkrIqe5IMUp5e_8");
-  }, []);
-
   const [formData, setFormData] = useState({
     checkIn: "",
     checkOut: "",
@@ -24,16 +18,10 @@ const ContactPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Placeholder for future form submission logic
     try {
-      await emailjs.send("service_mm5f34b", "template_p2js8ug", {
-        to_email: "atulkumar83013@gmail.com",
-        from_name: formData.name,
-        from_email: formData.email,
-        phone: formData.phone,
-        check_in: formData.checkIn,
-        check_out: formData.checkOut,
-        bedrooms: formData.bedrooms,
-      });
+      // You can add your form submission logic here later
+      console.log("Form submitted:", formData);
 
       setSubmitStatus({
         type: "success",
@@ -48,7 +36,7 @@ const ContactPage = () => {
         phone: "",
       });
     } catch (error) {
-      console.error("EmailJS Error:", error);
+      console.error("Submission Error:", error);
       setSubmitStatus({
         type: "error",
         message: "Failed to send reservation request. Please try again.",
@@ -61,11 +49,6 @@ const ContactPage = () => {
       ...formData,
       [e.target.name]: e.target.value,
     });
-  };
-
-  const location = {
-    latitude: 40.7128,
-    longitude: -74.006,
   };
 
   const closeModal = () => setSelectedImage(null);
@@ -320,9 +303,11 @@ const ContactPage = () => {
               </form>
             </div>
           </div>
+
           <div>
             <MapboxPreview />
           </div>
+
           {/* Image Gallery Section */}
           <div className="w-full mt-16">
             <div className="container mx-auto">
@@ -354,14 +339,14 @@ const ContactPage = () => {
             {selectedImage && (
               <div
                 className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"
-                onClick={() => setSelectedImage(null)}
+                onClick={closeModal}
               >
                 <div
                   className="relative w-full max-w-7xl"
                   onClick={(e) => e.stopPropagation()}
                 >
                   <button
-                    onClick={() => setSelectedImage(null)}
+                    onClick={closeModal}
                     className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors"
                   >
                     <X size={24} />
